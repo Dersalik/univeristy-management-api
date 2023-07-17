@@ -2,23 +2,20 @@ package com.univeristymanagement.api.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.util.List;
-
 @Entity
-@Table(name = "faculty")
+@Table(name = "study_program")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Faculty {
+public class StudyProgram {
 
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
@@ -29,14 +26,18 @@ public class Faculty {
     @NotBlank(message = "Description is required")
 //    @Max(value = 1000, message = "Description should not be greater than 200 characters")
     private String description;
-    @NotBlank(message = "Established date is required")
-//    @Past(message = "Established date should be in the past")
-    private LocalDate establishedDate;
-    @NotBlank(message = "Founder is required")
-//    @Max(value = 70, message = "Founder should not be greater than 70 characters")
-    private String founder;
+    @NotBlank(message = "Capacity is required")
+//    @Max(value = 1000, message = "Capacity should not be greater than 200 characters")
+//    @Min(value = 1, message = "Capacity should not be less than 1")
+    private int capacity;
 
-    @OneToMany(mappedBy = "faculty", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AcademicDepartment> academicDepartments;
+    @ManyToOne
+    @JoinColumn(name = "academic_department_id")
+    private AcademicDepartment academicDepartment;
+
+    @ManyToOne
+    @JoinColumn(name = "academic_id")
+    private Academic academic;
+
+
 }
-

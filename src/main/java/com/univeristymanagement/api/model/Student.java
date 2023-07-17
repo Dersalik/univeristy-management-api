@@ -6,10 +6,11 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
-import lombok.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "student")
@@ -20,8 +21,8 @@ import java.util.Date;
 public class Student extends Person {
 
     @NotBlank(message = "Birthday is required")
-    @Past(message = "Birthday should be in the past")
-    @Min(value = 18, message = "Age should be at least 18 years")
-    @Max(value = 100, message = "Age should not be greater than 100 years")
+//    @Past(message = "Birthday should be in the past")
+//    @Min(value = 18, message = "Age should be at least 18 years")
+//    @Max(value = 100, message = "Age should not be greater than 100 years")
     private LocalDate birthday;
 }
