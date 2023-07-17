@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "study_program")
 @Getter
@@ -38,6 +40,14 @@ public class StudyProgram {
     @ManyToOne
     @JoinColumn(name = "academic_id")
     private Academic academic;
+
+    @OneToMany(mappedBy = "studyProgram", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudyProgramDegree> studyProgramDegrees;
+
+    @OneToMany(mappedBy = "studyProgram", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudentStudyProgram> StudentStudyPrograms;
+
+
 
 
 }
