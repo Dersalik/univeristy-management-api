@@ -2,6 +2,7 @@ package com.univeristymanagement.api.controller;
 
 import com.univeristymanagement.api.model.Dto.FacultyCreateDto;
 import com.univeristymanagement.api.model.Dto.FacultyDto;
+import com.univeristymanagement.api.model.Dto.FacultyUpdateDto;
 import com.univeristymanagement.api.service.impl.FacultyServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,14 +41,38 @@ public class FacultyController {
     public ResponseEntity<FacultyDto> getFacultyById(@PathVariable Long id) {
 
         FacultyDto faculty= facultyService.getFacultyById(id);
+
+        if(faculty==null){
+            return ResponseEntity.notFound().build();
+        }
+
         return ResponseEntity.ok(faculty);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteFacultyById(@PathVariable Long id) {
+    public ResponseEntity<String> deleteFacultyById(@PathVariable Long id) {
 
-        facultyService.deleteFacultyById(id);
-        return ResponseEntity.ok().build();
+        boolean deleted= facultyService.deleteFacultyById(id);
+
+        if (deleted) {
+            return ResponseEntity.ok("Faculty deleted successfully.");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<FacultyDto> updateFacultyById(@PathVariable Long id, @RequestBody FacultyUpdateDto facultyDto) {
+
+        FacultyDto updatedFaculty= facultyService.updateFaculty(id, facultyDto);
+
+        if (updatedFaculty != null) {
+            return ResponseEntity.ok(updatedFaculty);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
 

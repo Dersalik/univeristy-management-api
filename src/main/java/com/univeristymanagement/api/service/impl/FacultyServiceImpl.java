@@ -2,6 +2,7 @@ package com.univeristymanagement.api.service.impl;
 
 import com.univeristymanagement.api.model.Dto.FacultyCreateDto;
 import com.univeristymanagement.api.model.Dto.FacultyDto;
+import com.univeristymanagement.api.model.Dto.FacultyUpdateDto;
 import com.univeristymanagement.api.model.Faculty;
 import com.univeristymanagement.api.repository.FacultyRepository;
 import com.univeristymanagement.api.service.FacultyService;
@@ -61,7 +62,37 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public FacultyDto getFacultyById(Long id) {
+
+        if(facultyRepository.existsById(id) == false)
+            return null;
+
+        return facultyToDto(facultyRepository.findById(id).get());
+    }
+
+    @Override
+    public boolean deleteFacultyById(Long id) {
+
+        if(facultyRepository.existsById(id) == false)
+            return false;
+
+        facultyRepository.deleteById(id);
+        return true;
+    }
+
+    @Override
+    public FacultyDto updateFaculty(Long id, FacultyUpdateDto facultyDto) {
+
+        if(facultyRepository.existsById(id) == false)
+            return null;
+
+
+
         Faculty faculty = facultyRepository.findById(id).get();
+        faculty.setName(facultyDto.getName());
+        faculty.setDescription(facultyDto.getDescription());
+        faculty.setFounder(facultyDto.getFounder());
+        faculty.setEstablishedDate(facultyDto.getEstablishedDate());
+        facultyRepository.save(faculty);
         return facultyToDto(faculty);
     }
 }
