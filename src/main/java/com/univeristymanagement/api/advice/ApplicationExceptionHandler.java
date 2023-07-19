@@ -1,7 +1,14 @@
 package com.univeristymanagement.api.advice;
 
 
+import com.univeristymanagement.api.exceptions.ResourceNotFoundException;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -24,13 +31,23 @@ public class ApplicationExceptionHandler {
         });
         return errorMap;
     }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFoundException ex)
+    {
+        String message = ex.getMessage();
+        ApiResponse apiResponse = new ApiResponse(message, false);
 
-//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-//    @ExceptionHandler(UserNotFoundException.class)
-//    public Map<String, String> handleBusinessException(UserNotFoundException ex) {
-//        Map<String, String> errorMap = new HashMap<>();
-//        errorMap.put("errorMessage", ex.getMessage());
-//        return errorMap;
-//    }
+        return new ResponseEntity<ApiResponse>(apiResponse,HttpStatus.NOT_FOUND);
+    }
+
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public class ApiResponse {
+        private String message;
+        private boolean success;
+    }
 
 }

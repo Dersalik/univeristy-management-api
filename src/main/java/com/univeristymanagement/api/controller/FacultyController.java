@@ -1,5 +1,7 @@
 package com.univeristymanagement.api.controller;
 
+import com.univeristymanagement.api.model.AcademicDepartment;
+import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
 import com.univeristymanagement.api.model.Dto.FacultyCreateDto;
 import com.univeristymanagement.api.model.Dto.FacultyDto;
 import com.univeristymanagement.api.model.Dto.FacultyUpdateDto;
@@ -11,12 +13,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import jakarta.validation.executable.ValidateOnExecution;
-import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +30,8 @@ import java.util.List;
 public class FacultyController {
 
     private FacultyServiceImpl facultyService;
+    private static final Logger logger = LoggerFactory.getLogger(FacultyController.class);
+
 
     @Autowired
     public FacultyController(FacultyServiceImpl facultyService){
@@ -45,6 +47,8 @@ public class FacultyController {
     public ResponseEntity<FacultyDto> createFaculty(@RequestBody @Valid  FacultyCreateDto facultyDto) {
        FacultyDto savedFaculty= facultyService.createFaculty(facultyDto);
 
+       logger.info("Faculty created with id: {}", savedFaculty.getId());
+
          return ResponseEntity.ok(savedFaculty);
     }
 
@@ -56,6 +60,8 @@ public class FacultyController {
     public ResponseEntity<List<FacultyDto>> getAllFaculties() {
 
        List<FacultyDto> faculties= facultyService.getAllFaculties();
+
+       logger.info("All faculties fetched quantity: {}", faculties.size());
          return ResponseEntity.ok(faculties);
     }
 
@@ -69,11 +75,26 @@ public class FacultyController {
 
         FacultyDto faculty= facultyService.getFacultyById(id);
 
-        if(faculty==null){
-            return ResponseEntity.notFound().build();
-        }
+
+        logger.info("Faculty fetched with id: {}", faculty.getId());
 
         return ResponseEntity.ok(faculty);
+    }
+
+    @Operation(summary = "Get department of a faculty by id")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = AcademicDepartmentDto.class, type = "array"), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
+    })
+    @GetMapping("/{id}/academic-departments")
+    public ResponseEntity<List<AcademicDepartmentDto>> getAcademicDepartments( @PathVariable Long id) {
+
+
+        List<AcademicDepartmentDto> departments= facultyService.getAllAcademicDepartmentsByFacultyId(id);
+
+        logger.info("Academic departments fetched for faculty with id: {}", id);
+
+        return ResponseEntity.ok(departments);
     }
 
     @Operation(summary = "Delete faculty by id")
@@ -84,13 +105,11 @@ public class FacultyController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteFacultyById( @PathVariable Long id) {
 
-        boolean deleted= facultyService.deleteFacultyById(id);
+            facultyService.deleteFacultyById(id);
 
-        if (deleted) {
+            logger.info("Faculty deleted with id: {}", id);
             return ResponseEntity.ok("Faculty deleted successfully.");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+
 
     }
 
@@ -104,11 +123,9 @@ public class FacultyController {
 
         FacultyDto updatedFaculty= facultyService.updateFaculty(id, facultyDto);
 
-        if (updatedFaculty != null) {
+        logger.info("Faculty updated with id: {}", updatedFaculty.getId());
             return ResponseEntity.ok(updatedFaculty);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+
 
     }
 

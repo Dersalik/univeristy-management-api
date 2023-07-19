@@ -1,5 +1,6 @@
 package com.univeristymanagement.api.service.impl;
 
+import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
 import com.univeristymanagement.api.model.Dto.FacultyCreateDto;
 import com.univeristymanagement.api.model.Dto.FacultyDto;
 import com.univeristymanagement.api.model.Dto.FacultyUpdateDto;
@@ -35,6 +36,8 @@ public class FacultyServiceImpl implements FacultyService {
         return facultyDto;
     }
 
+
+
     private Faculty createDtoToFaculty(FacultyCreateDto facultyCreateDto){
         Faculty faculty = new Faculty();
         faculty.setName(facultyCreateDto.getName());
@@ -44,6 +47,10 @@ public class FacultyServiceImpl implements FacultyService {
         return faculty;
     }
 
+    @Override
+    public boolean isValidId(Long id) {
+        return facultyRepository.existsById(id);
+    }
     @Override
     public FacultyDto createFaculty(FacultyCreateDto facultyDto) {
         Faculty faculty = createDtoToFaculty(facultyDto);
@@ -62,8 +69,7 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     public FacultyDto getFacultyById(Long id) {
 
-        if(facultyRepository.existsById(id) == false)
-            return null;
+
 
         return facultyToDto(facultyRepository.findById(id).get());
     }
@@ -71,18 +77,28 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     public boolean deleteFacultyById(Long id) {
 
-        if(facultyRepository.existsById(id) == false)
-            return false;
+
 
         facultyRepository.deleteById(id);
         return true;
     }
 
     @Override
+    public List<AcademicDepartmentDto> getAllAcademicDepartmentsByFacultyId(Long id) {
+
+        Faculty faculty = facultyRepository.findById(id).get();
+
+        FacultyDto facultyDto = facultyToDto(faculty);
+
+        List<AcademicDepartmentDto> academicDepartmentDtos = faculty.getAcademicDepartments()
+                .stream().map((k)-> new AcademicDepartmentDto(k.getId(),k.getName(),facultyDto)).collect(Collectors.toList());
+        return academicDepartmentDtos;
+    }
+
+    @Override
     public FacultyDto updateFaculty(Long id, FacultyUpdateDto facultyDto) {
 
-        if(facultyRepository.existsById(id) == false)
-            return null;
+
 
 
 
