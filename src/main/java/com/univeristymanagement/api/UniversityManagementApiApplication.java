@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class UniversityManagementApiApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(UniversityManagementApiApplication.class, args);
+
 	}
 
 }

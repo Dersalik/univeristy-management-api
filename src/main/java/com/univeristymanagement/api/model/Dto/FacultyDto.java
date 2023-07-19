@@ -29,5 +29,4 @@ public class FacultyDto {
     private String description;
     private LocalDate establishedDate;
     private String founder;
-    private List<AcademicDepartment> academicDepartments;
 }

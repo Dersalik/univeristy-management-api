@@ -31,7 +31,6 @@ public class FacultyServiceImpl implements FacultyService {
         facultyDto.setDescription(faculty.getDescription());
         facultyDto.setFounder(faculty.getFounder());
         facultyDto.setEstablishedDate(faculty.getEstablishedDate());
-        facultyDto.setAcademicDepartments(faculty.getAcademicDepartments());
 
         return facultyDto;
     }
