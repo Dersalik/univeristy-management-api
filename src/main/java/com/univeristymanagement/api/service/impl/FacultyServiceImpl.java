@@ -1,10 +1,14 @@
 package com.univeristymanagement.api.service.impl;
 
+import com.univeristymanagement.api.exceptions.ResourceAlreadyAssignedException;
+import com.univeristymanagement.api.exceptions.ResourceNotFoundException;
+import com.univeristymanagement.api.model.AcademicDepartment;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
 import com.univeristymanagement.api.model.Dto.FacultyCreateDto;
 import com.univeristymanagement.api.model.Dto.FacultyDto;
 import com.univeristymanagement.api.model.Dto.FacultyUpdateDto;
 import com.univeristymanagement.api.model.Faculty;
+import com.univeristymanagement.api.repository.AcademicDepartmentRepository;
 import com.univeristymanagement.api.repository.FacultyRepository;
 import com.univeristymanagement.api.service.FacultyService;
 import com.univeristymanagement.api.service.mappers.FacultyMapper;
@@ -20,8 +24,11 @@ import java.util.stream.Collectors;
 public class FacultyServiceImpl implements FacultyService {
 
     private FacultyRepository facultyRepository;
+    private AcademicDepartmentRepository academicDepartmentRepository;
+
     @Autowired
-    public FacultyServiceImpl(FacultyRepository facultyRepository){
+    public FacultyServiceImpl(FacultyRepository facultyRepository, AcademicDepartmentRepository academicDepartmentRepository){
+        this.academicDepartmentRepository = academicDepartmentRepository;
         this.facultyRepository = facultyRepository;
     }
 
@@ -72,6 +79,8 @@ public class FacultyServiceImpl implements FacultyService {
         return academicDepartmentDtos;
     }
 
+
+
     @Override
     public FacultyDto updateFaculty(Long id, FacultyUpdateDto facultyDto) {
 
@@ -84,4 +93,27 @@ public class FacultyServiceImpl implements FacultyService {
 
         return FacultyMapper.facultyToDto(faculty);
     }
+
+
+    @Override
+    public void assignAcademicDepartmentToFaculty(Long facultyId, Long academicDepartmentId) {
+        // Retrieve the Faculty and AcademicDepartment entities
+        Faculty faculty = facultyRepository.findById(facultyId)
+                .orElseThrow(() -> new ResourceNotFoundException("Faculty ", "id" , facultyId));
+
+        AcademicDepartment department =  academicDepartmentRepository.findById(academicDepartmentId)
+                .orElseThrow(() -> new ResourceNotFoundException("AcademicDepartment", "id", academicDepartmentId));
+
+        // Assign the academic department to the faculty
+        if(faculty.getAcademicDepartments().stream().anyMatch(dept -> dept.getId().equals(academicDepartmentId))) {
+            throw new ResourceAlreadyAssignedException("AcademicDepartment", academicDepartmentId,
+                    "Faculty", facultyId);
+        }
+
+        department.setFaculty(faculty);
+
+        academicDepartmentRepository.save(department);
+    }
+
+
 }

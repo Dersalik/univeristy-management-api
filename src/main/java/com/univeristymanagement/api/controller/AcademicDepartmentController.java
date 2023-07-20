@@ -6,6 +6,8 @@ import com.univeristymanagement.api.model.Dto.AcademicDepartmentUpdateDto;
 import com.univeristymanagement.api.service.impl.AcademicDepartmentImp;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,38 +27,39 @@ public class AcademicDepartmentController {
     }
 
     @GetMapping
-    public List<AcademicDepartmentDto> getAllAcademicDepartments() {
+    public ResponseEntity<List<AcademicDepartmentDto>> getAllAcademicDepartments() {
         logger.info("Get all academic departments");
-        return academicDepartmentService.getAllAcademicDepartments();
+        return ResponseEntity.ok().body(academicDepartmentService.getAllAcademicDepartments());
     }
 
     @GetMapping("/{id}")
-    public AcademicDepartmentDto getAcademicDepartmentById(@PathVariable Long id) {
+    public ResponseEntity<AcademicDepartmentDto> getAcademicDepartmentById(@PathVariable Long id) {
         logger.info("Get academic department by id");
-        return academicDepartmentService.getAcademicDepartmentById(id);
+
+        return ResponseEntity.ok().body(academicDepartmentService.getAcademicDepartmentById(id));
     }
 
     @PostMapping
-    public AcademicDepartmentDto createAcademicDepartment(@Valid @RequestBody AcademicDepartmentCreateDto academicDepartmentDto) {
+    public ResponseEntity<AcademicDepartmentDto> createAcademicDepartment(@Valid @RequestBody AcademicDepartmentCreateDto academicDepartmentDto) {
         logger.info("Create academic department");
-        return academicDepartmentService.createAcademicDepartment(academicDepartmentDto);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(academicDepartmentService.createAcademicDepartment(academicDepartmentDto));
+
     }
 
 
     @DeleteMapping("/{id}")
-    public boolean deleteAcademicDepartmentById(@PathVariable Long id) {
+    public ResponseEntity deleteAcademicDepartmentById(@PathVariable Long id) {
         logger.info("Delete academic department by id");
-        return academicDepartmentService.deleteAcademicDepartmentById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}")
-    public AcademicDepartmentDto updateAcademicDepartmentById(@PathVariable Long id, @Valid @RequestBody AcademicDepartmentUpdateDto academicDepartmentDto) {
+    public ResponseEntity<AcademicDepartmentDto> updateAcademicDepartmentById(@PathVariable Long id, @Valid @RequestBody AcademicDepartmentUpdateDto academicDepartmentDto) {
         logger.info("Update academic department by id");
-        return academicDepartmentService.updateAcademicDepartmentById(id, academicDepartmentDto);
+
+        return ResponseEntity.ok().body(academicDepartmentService.updateAcademicDepartmentById(id, academicDepartmentDto));
     }
-
-
-
 
 
 }

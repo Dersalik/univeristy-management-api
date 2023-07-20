@@ -3,6 +3,7 @@ package com.univeristymanagement.api.service.mappers;
 import com.univeristymanagement.api.model.AcademicDepartment;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentCreateDto;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
+import com.univeristymanagement.api.model.Dto.FacultyDto;
 
 public class AcademicDepartmentMapper {
 
@@ -12,10 +13,12 @@ public class AcademicDepartmentMapper {
         return academicDepartment;
     }
 
-    public static AcademicDepartmentDto academicDepartmentToAcademicDepartmentDto(AcademicDepartment academicDepartment) {
+    public static AcademicDepartmentDto academicDepartmentToAcademicDepartmentDto(AcademicDepartment academicDepartment
+    , FacultyDto facultyDto) {
         AcademicDepartmentDto academicDepartmentDto = new AcademicDepartmentDto();
         academicDepartmentDto.setId(academicDepartment.getId());
         academicDepartmentDto.setName(academicDepartment.getName());
+        academicDepartmentDto.setFaculty(facultyDto);
         return academicDepartmentDto;
     }
 }

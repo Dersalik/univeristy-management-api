@@ -36,8 +36,8 @@ public class AcademicDepartmentImp implements AcademicDepartmentService {
     @Override
     public List<AcademicDepartmentDto> getAllAcademicDepartments() {
         return academicDepartmentRepository.findAll().stream().map(academicDepartment -> {
-            AcademicDepartmentDto academicDepartmentDto = AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment);
-            academicDepartmentDto.setFaculty(FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
+            AcademicDepartmentDto academicDepartmentDto = AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment
+            , FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
             return academicDepartmentDto;
         }).collect(Collectors.toList());
     }
@@ -55,7 +55,8 @@ public class AcademicDepartmentImp implements AcademicDepartmentService {
 
         academicDepartmentRepository.save(academicDepartment);
 
-        return AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment);
+        return AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment,
+                FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
 
 
     }
@@ -66,8 +67,9 @@ public class AcademicDepartmentImp implements AcademicDepartmentService {
 
         AcademicDepartment academicDepartment = academicDepartmentRepository.findById(id).get();
 
-        AcademicDepartmentDto academicDepartmentDto = AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment);
-        academicDepartmentDto.setFaculty(FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
+        AcademicDepartmentDto academicDepartmentDto = AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment
+        , FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
+
         return academicDepartmentDto;
     }
 
@@ -90,7 +92,12 @@ public class AcademicDepartmentImp implements AcademicDepartmentService {
 
         academicDepartmentRepository.save(academicDepartment);
 
-        return AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment);
+
+        AcademicDepartmentDto academicDepartmentDtoToReturn = AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment
+        , FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
+
+
+        return academicDepartmentDtoToReturn ;
     }
 
 

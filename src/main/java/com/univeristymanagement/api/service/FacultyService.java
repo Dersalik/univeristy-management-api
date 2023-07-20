@@ -25,4 +25,6 @@ public interface FacultyService {
 
     List<AcademicDepartmentDto> getAllAcademicDepartmentsByFacultyId(Long id);
 
+    void assignAcademicDepartmentToFaculty(Long facultyId, Long academicDepartmentId);
+
 }

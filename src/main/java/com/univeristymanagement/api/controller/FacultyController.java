@@ -129,6 +129,19 @@ public class FacultyController {
 
     }
 
+    @Operation(summary = "Assign academic department to faculty")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = FacultyDto.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
+    })
+    @PostMapping("/{facultyId}/assign-department/{departmentId}")
+    public ResponseEntity assignDepartmentToFaculty(
+            @PathVariable Long facultyId, @PathVariable Long departmentId) {
+        logger.info("Assign academic department to faculty");
+        facultyService.assignAcademicDepartmentToFaculty(facultyId, departmentId);
+        return ResponseEntity.noContent().build();
+    }
+
 
 
 }
