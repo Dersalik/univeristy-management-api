@@ -1,611 +1,227 @@
-2023-07-19T12:12:54.737+03:00  INFO 12348 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 12348 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T12:12:54.739+03:00 DEBUG 12348 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T12:12:54.740+03:00  INFO 12348 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T12:12:55.490+03:00  INFO 12348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T12:12:55.555+03:00  INFO 12348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 6 JPA repository interfaces.
-2023-07-19T12:12:56.024+03:00  INFO 12348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T12:12:56.031+03:00  INFO 12348 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T12:12:56.031+03:00  INFO 12348 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T12:12:56.105+03:00  INFO 12348 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T12:12:56.105+03:00  INFO 12348 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1332 ms
-2023-07-19T12:12:56.291+03:00  INFO 12348 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T12:12:56.343+03:00  INFO 12348 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T12:12:56.345+03:00  INFO 12348 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T12:12:56.455+03:00  INFO 12348 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T12:12:56.569+03:00  INFO 12348 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T12:12:56.583+03:00  INFO 12348 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T12:12:56.715+03:00  INFO 12348 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@839755f
-2023-07-19T12:12:56.716+03:00  INFO 12348 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T12:12:56.976+03:00  INFO 12348 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T12:12:57.635+03:00  INFO 12348 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T12:12:57.652+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.652+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "academic" does not exist, skipping
-2023-07-19T12:12:57.652+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.652+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "academic_department" does not exist, skipping
-2023-07-19T12:12:57.652+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.652+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "student_study_program" does not exist, skipping
-2023-07-19T12:12:57.653+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.653+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "student_study_program" does not exist, skipping
-2023-07-19T12:12:57.653+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.653+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "study_program" does not exist, skipping
-2023-07-19T12:12:57.653+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.654+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "study_program" does not exist, skipping
-2023-07-19T12:12:57.654+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.654+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "study_program_degree" does not exist, skipping
-2023-07-19T12:12:57.654+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.654+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "study_program_degree" does not exist, skipping
-2023-07-19T12:12:57.655+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.655+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "academic" does not exist, skipping
-2023-07-19T12:12:57.656+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.656+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "academic_degree" does not exist, skipping
-2023-07-19T12:12:57.656+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.656+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "academic_department" does not exist, skipping
-2023-07-19T12:12:57.656+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.657+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "faculty" does not exist, skipping
-2023-07-19T12:12:57.657+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.657+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "student" does not exist, skipping
-2023-07-19T12:12:57.657+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.657+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "student_study_program" does not exist, skipping
-2023-07-19T12:12:57.658+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.658+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "study_program" does not exist, skipping
-2023-07-19T12:12:57.658+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2023-07-19T12:12:57.658+03:00  WARN 12348 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "study_program_degree" does not exist, skipping
-2023-07-19T12:12:57.719+03:00  INFO 12348 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T12:12:58.064+03:00  WARN 12348 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T12:12:58.812+03:00  INFO 12348 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-07-19T12:12:58.874+03:00  INFO 12348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-07-19T12:12:58.886+03:00  INFO 12348 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 4.484 seconds (process running for 4.914)
-2023-07-19T12:12:59.224+03:00  INFO 12348 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-07-19T12:12:59.224+03:00  INFO 12348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-19T12:12:59.227+03:00  INFO 12348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2023-07-19T12:12:59.868+03:00  INFO 12348 --- [http-nio-8080-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 194 ms
-2023-07-19T12:13:49.582+03:00  INFO 12348 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T12:13:49.610+03:00  INFO 12348 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T12:13:49.612+03:00  INFO 12348 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:02:25.406+03:00  INFO 2648 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 2648 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:02:25.408+03:00 DEBUG 2648 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:02:25.409+03:00  INFO 2648 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:02:27.442+03:00  INFO 2648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:02:27.727+03:00  INFO 2648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 269 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:02:28.843+03:00  INFO 2648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:02:28.860+03:00  INFO 2648 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:02:28.861+03:00  INFO 2648 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:02:29.049+03:00  INFO 2648 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:02:29.050+03:00  INFO 2648 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3589 ms
-2023-07-19T13:02:29.623+03:00  INFO 2648 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:02:29.725+03:00  INFO 2648 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:02:29.730+03:00  INFO 2648 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:02:29.992+03:00  INFO 2648 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:02:30.258+03:00  INFO 2648 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:02:30.284+03:00  INFO 2648 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:02:30.555+03:00  INFO 2648 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4d0b276e
-2023-07-19T13:02:30.558+03:00  INFO 2648 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:02:31.084+03:00  INFO 2648 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:02:32.329+03:00  INFO 2648 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:02:32.529+03:00  INFO 2648 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:02:34.081+03:00  WARN 2648 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:02:34.294+03:00  WARN 2648 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-2023-07-19T13:02:34.295+03:00  INFO 2648 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:02:34.297+03:00  INFO 2648 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:02:34.302+03:00  INFO 2648 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:02:34.305+03:00  INFO 2648 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-07-19T13:02:34.335+03:00  INFO 2648 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2023-07-20T13:09:24.177+03:00  INFO 1692 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 1692 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
+2023-07-20T13:09:24.184+03:00 DEBUG 1692 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-07-20T13:09:24.185+03:00  INFO 1692 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
+2023-07-20T13:09:25.368+03:00  INFO 1692 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-20T13:09:25.478+03:00  INFO 1692 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 6 JPA repository interfaces.
+2023-07-20T13:09:26.318+03:00  INFO 1692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-20T13:09:26.328+03:00  INFO 1692 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-20T13:09:26.328+03:00  INFO 1692 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-20T13:09:26.448+03:00  INFO 1692 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-20T13:09:26.449+03:00  INFO 1692 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2213 ms
+2023-07-20T13:09:26.731+03:00  INFO 1692 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-20T13:09:26.811+03:00  INFO 1692 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-07-20T13:09:26.813+03:00  INFO 1692 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-20T13:09:27.018+03:00  INFO 1692 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T13:09:27.190+03:00  INFO 1692 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-20T13:09:27.211+03:00  INFO 1692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-20T13:09:27.488+03:00  INFO 1692 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@77e6761f
+2023-07-20T13:09:27.490+03:00  INFO 1692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-20T13:09:27.929+03:00  INFO 1692 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T13:09:28.951+03:00  INFO 1692 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-20T13:09:29.179+03:00  INFO 1692 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T13:09:29.479+03:00  INFO 1692 --- [main] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
+2023-07-20T13:09:29.663+03:00  WARN 1692 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-20T13:09:30.909+03:00  INFO 1692 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-20T13:09:30.998+03:00  INFO 1692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-20T13:09:31.014+03:00  INFO 1692 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 7.327 seconds (process running for 8.254)
+2023-07-20T13:09:31.487+03:00  INFO 1692 --- [RMI TCP Connection(5)-192.168.56.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-20T13:09:31.487+03:00  INFO 1692 --- [RMI TCP Connection(5)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-20T13:09:31.490+03:00  INFO 1692 --- [RMI TCP Connection(5)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-07-20T13:09:32.588+03:00  INFO 1692 --- [http-nio-8080-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 230 ms
+2023-07-20T13:13:17.638+03:00  INFO 1692 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T13:13:17.640+03:00  INFO 1692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-20T13:13:17.642+03:00  INFO 1692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-20T13:46:37.966+03:00  INFO 24008 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 24008 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
+2023-07-20T13:46:37.968+03:00 DEBUG 24008 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-07-20T13:46:37.968+03:00  INFO 24008 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
+2023-07-20T13:46:38.749+03:00  INFO 24008 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-20T13:46:38.801+03:00  INFO 24008 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 6 JPA repository interfaces.
+2023-07-20T13:46:39.298+03:00  INFO 24008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-20T13:46:39.304+03:00  INFO 24008 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-20T13:46:39.304+03:00  INFO 24008 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-20T13:46:39.382+03:00  INFO 24008 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-20T13:46:39.382+03:00  INFO 24008 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1379 ms
+2023-07-20T13:46:39.571+03:00  INFO 24008 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-20T13:46:39.633+03:00  INFO 24008 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-07-20T13:46:39.636+03:00  INFO 24008 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-20T13:46:39.759+03:00  INFO 24008 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T13:46:39.874+03:00  INFO 24008 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-20T13:46:39.886+03:00  INFO 24008 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-20T13:46:40.120+03:00  INFO 24008 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1b25d695
+2023-07-20T13:46:40.122+03:00  INFO 24008 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-20T13:46:40.358+03:00  INFO 24008 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T13:46:41.076+03:00  INFO 24008 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-20T13:46:41.207+03:00  INFO 24008 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T13:46:41.538+03:00  WARN 24008 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-20T13:46:42.411+03:00  INFO 24008 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-20T13:46:42.472+03:00  INFO 24008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-20T13:46:42.484+03:00  INFO 24008 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 4.858 seconds (process running for 5.292)
+2023-07-20T13:46:42.852+03:00  INFO 24008 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-20T13:46:42.852+03:00  INFO 24008 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-20T13:46:42.855+03:00  INFO 24008 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-07-20T13:46:43.798+03:00  INFO 24008 --- [http-nio-8080-exec-7] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 189 ms
+2023-07-20T13:46:49.520+03:00  INFO 24008 --- [http-nio-8080-exec-4] c.u.a.c.AcademicDepartmentController     : Get all academic departments
+2023-07-20T13:46:55.973+03:00  INFO 24008 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T13:46:55.975+03:00  INFO 24008 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-20T13:46:55.978+03:00  INFO 24008 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-20T14:05:20.667+03:00  INFO 24404 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 24404 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
+2023-07-20T14:05:20.668+03:00 DEBUG 24404 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-07-20T14:05:20.668+03:00  INFO 24404 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
+2023-07-20T14:05:21.426+03:00  INFO 24404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-20T14:05:21.485+03:00  INFO 24404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 6 JPA repository interfaces.
+2023-07-20T14:05:21.952+03:00  INFO 24404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-20T14:05:21.958+03:00  INFO 24404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-20T14:05:21.958+03:00  INFO 24404 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-20T14:05:22.028+03:00  INFO 24404 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-20T14:05:22.029+03:00  INFO 24404 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1326 ms
+2023-07-20T14:05:22.251+03:00  INFO 24404 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-20T14:05:22.310+03:00  INFO 24404 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-07-20T14:05:22.312+03:00  INFO 24404 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-20T14:05:22.428+03:00  INFO 24404 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T14:05:22.553+03:00  INFO 24404 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-20T14:05:22.566+03:00  INFO 24404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-20T14:05:22.696+03:00  INFO 24404 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24b3f778
+2023-07-20T14:05:22.697+03:00  INFO 24404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-20T14:05:22.943+03:00  INFO 24404 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T14:05:23.611+03:00  INFO 24404 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-20T14:05:23.746+03:00  INFO 24404 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T14:05:24.083+03:00  WARN 24404 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-20T14:05:25.003+03:00  INFO 24404 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-20T14:05:25.072+03:00  INFO 24404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-20T14:05:25.084+03:00  INFO 24404 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 4.736 seconds (process running for 5.167)
+2023-07-20T14:05:25.439+03:00  INFO 24404 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-20T14:05:25.439+03:00  INFO 24404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-20T14:05:25.442+03:00  INFO 24404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-07-20T14:05:26.407+03:00  INFO 24404 --- [http-nio-8080-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 258 ms
+2023-07-20T14:05:39.323+03:00  INFO 24404 --- [http-nio-8080-exec-4] c.u.a.c.AcademicDepartmentController     : Create academic department
+2023-07-20T14:05:39.325+03:00 ERROR 24404 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.univeristymanagement.api.repository.FacultyRepository.findById(Object)" because "this.facultyRepository" is null] with root cause
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-07-19T13:02:34.365+03:00 ERROR 2648 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:819) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:771) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:483) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1416) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:597) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:941) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
-	at com.univeristymanagement.api.UniversityManagementApiApplication.main(UniversityManagementApiApplication.java:12) ~[main/:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:659) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:647) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1332) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1162) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1633) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1597) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1488) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1375) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:811) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 20 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:171) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:655) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 36 common frames omitted
-Caused by: java.lang.IllegalArgumentException: oidcUserService cannot be null
-	at org.springframework.util.Assert.notNull(Assert.java:204) ~[spring-core-6.0.10.jar:6.0.10]
-	at org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2LoginConfigurer$UserInfoEndpointConfig.oidcUserService(OAuth2LoginConfigurer.java:699) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at com.azure.spring.cloud.autoconfigure.aad.AadWebApplicationHttpSecurityConfigurer.init(AadWebApplicationHttpSecurityConfigurer.java:92) ~[spring-cloud-azure-autoconfigure-6.0.0-beta.4.jar:6.0.0-beta.4]
-	at com.azure.spring.cloud.autoconfigure.aad.AadWebApplicationHttpSecurityConfigurer.init(AadWebApplicationHttpSecurityConfigurer.java:37) ~[spring-cloud-azure-autoconfigure-6.0.0-beta.4.jar:6.0.0-beta.4]
-	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.init(AbstractConfiguredSecurityBuilder.java:338) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.doBuild(AbstractConfiguredSecurityBuilder.java:300) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at org.springframework.security.config.annotation.AbstractSecurityBuilder.build(AbstractSecurityBuilder.java:38) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at com.univeristymanagement.api.config.AadOAuth2LoginSecurityConfig.filterChain(AadOAuth2LoginSecurityConfig.java:26) ~[main/:na]
+java.lang.NullPointerException: Cannot invoke "com.univeristymanagement.api.repository.FacultyRepository.findById(Object)" because "this.facultyRepository" is null
+	at com.univeristymanagement.api.service.impl.AcademicDepartmentImp.createAcademicDepartment(AcademicDepartmentImp.java:47) ~[main/:na]
+	at com.univeristymanagement.api.controller.AcademicDepartmentController.createAcademicDepartment(AcademicDepartmentController.java:35) ~[main/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:139) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 37 common frames omitted
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.10.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.10.jar:6.0.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.10.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.10.jar:6.0.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.10.jar:10.1.10]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2023-07-19T13:03:19.948+03:00  INFO 9652 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 9652 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:03:19.950+03:00 DEBUG 9652 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:03:19.951+03:00  INFO 9652 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:03:21.653+03:00  INFO 9652 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:03:21.890+03:00  INFO 9652 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 228 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:03:22.892+03:00  INFO 9652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:03:22.904+03:00  INFO 9652 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:03:22.905+03:00  INFO 9652 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:03:23.022+03:00  INFO 9652 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:03:23.022+03:00  INFO 9652 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3003 ms
-2023-07-19T13:03:23.387+03:00  INFO 9652 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:03:23.464+03:00  INFO 9652 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:03:23.467+03:00  INFO 9652 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:03:23.644+03:00  INFO 9652 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:03:23.837+03:00  INFO 9652 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:03:23.857+03:00  INFO 9652 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:03:24.062+03:00  INFO 9652 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d5e3f55
-2023-07-19T13:03:24.064+03:00  INFO 9652 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:03:24.505+03:00  INFO 9652 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:03:25.521+03:00  INFO 9652 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:03:25.713+03:00  INFO 9652 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:03:26.484+03:00  WARN 9652 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:03:26.649+03:00  WARN 9652 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-2023-07-19T13:03:26.650+03:00  INFO 9652 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:03:26.652+03:00  INFO 9652 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:03:26.656+03:00  INFO 9652 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:03:26.658+03:00  INFO 9652 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-07-19T13:03:26.684+03:00  INFO 9652 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-07-19T13:03:26.712+03:00 ERROR 9652 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:819) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:771) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:483) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1416) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:597) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:941) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
-	at com.univeristymanagement.api.UniversityManagementApiApplication.main(UniversityManagementApiApplication.java:12) ~[main/:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:659) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:647) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1332) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1162) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1633) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1597) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1488) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1375) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:811) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 20 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:171) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:655) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 36 common frames omitted
-Caused by: java.lang.IllegalArgumentException: oidcUserService cannot be null
-	at org.springframework.util.Assert.notNull(Assert.java:204) ~[spring-core-6.0.10.jar:6.0.10]
-	at org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2LoginConfigurer$UserInfoEndpointConfig.oidcUserService(OAuth2LoginConfigurer.java:699) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at com.azure.spring.cloud.autoconfigure.aad.AadWebApplicationHttpSecurityConfigurer.init(AadWebApplicationHttpSecurityConfigurer.java:92) ~[spring-cloud-azure-autoconfigure-6.0.0-beta.4.jar:6.0.0-beta.4]
-	at com.azure.spring.cloud.autoconfigure.aad.AadWebApplicationHttpSecurityConfigurer.init(AadWebApplicationHttpSecurityConfigurer.java:37) ~[spring-cloud-azure-autoconfigure-6.0.0-beta.4.jar:6.0.0-beta.4]
-	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.init(AbstractConfiguredSecurityBuilder.java:338) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.doBuild(AbstractConfiguredSecurityBuilder.java:300) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at org.springframework.security.config.annotation.AbstractSecurityBuilder.build(AbstractSecurityBuilder.java:38) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at com.univeristymanagement.api.config.AadOAuth2LoginSecurityConfig.filterChain(AadOAuth2LoginSecurityConfig.java:26) ~[main/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:139) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 37 common frames omitted
-
-2023-07-19T13:05:08.613+03:00  INFO 12476 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 12476 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:05:08.615+03:00 DEBUG 12476 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:05:08.616+03:00  INFO 12476 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:05:10.203+03:00  INFO 12476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:05:10.421+03:00  INFO 12476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 210 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:05:11.289+03:00  INFO 12476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:05:11.298+03:00  INFO 12476 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:05:11.299+03:00  INFO 12476 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:05:11.408+03:00  INFO 12476 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:05:11.409+03:00  INFO 12476 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2737 ms
-2023-07-19T13:05:11.751+03:00  INFO 12476 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:05:11.815+03:00  INFO 12476 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:05:11.817+03:00  INFO 12476 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:05:11.978+03:00  INFO 12476 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:05:12.201+03:00  INFO 12476 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:05:12.227+03:00  INFO 12476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:05:12.435+03:00  INFO 12476 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1b841e7d
-2023-07-19T13:05:12.438+03:00  INFO 12476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:05:12.808+03:00  INFO 12476 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:05:13.845+03:00  INFO 12476 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:05:14.029+03:00  INFO 12476 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:05:14.801+03:00  WARN 12476 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:05:14.935+03:00  WARN 12476 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-2023-07-19T13:05:14.936+03:00  INFO 12476 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:05:14.937+03:00  INFO 12476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:05:14.940+03:00  INFO 12476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:05:14.942+03:00  INFO 12476 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-07-19T13:05:14.970+03:00  INFO 12476 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-07-19T13:05:14.995+03:00 ERROR 12476 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:819) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:771) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:483) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1416) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:597) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:941) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608) ~[spring-context-6.0.10.jar:6.0.10]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.1.jar:3.1.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.1.jar:3.1.1]
-	at com.univeristymanagement.api.UniversityManagementApiApplication.main(UniversityManagementApiApplication.java:12) ~[main/:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'filterChain' defined in class path resource [com/univeristymanagement/api/config/AadOAuth2LoginSecurityConfig.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:659) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:647) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1332) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1162) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1633) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1597) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1488) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1375) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:811) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 20 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: oidcUserService cannot be null
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:171) ~[spring-beans-6.0.10.jar:6.0.10]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:655) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 36 common frames omitted
-Caused by: java.lang.IllegalArgumentException: oidcUserService cannot be null
-	at org.springframework.util.Assert.notNull(Assert.java:204) ~[spring-core-6.0.10.jar:6.0.10]
-	at org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2LoginConfigurer$UserInfoEndpointConfig.oidcUserService(OAuth2LoginConfigurer.java:699) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at com.azure.spring.cloud.autoconfigure.aad.AadWebApplicationHttpSecurityConfigurer.init(AadWebApplicationHttpSecurityConfigurer.java:92) ~[spring-cloud-azure-autoconfigure-6.0.0-beta.4.jar:6.0.0-beta.4]
-	at com.azure.spring.cloud.autoconfigure.aad.AadWebApplicationHttpSecurityConfigurer.init(AadWebApplicationHttpSecurityConfigurer.java:37) ~[spring-cloud-azure-autoconfigure-6.0.0-beta.4.jar:6.0.0-beta.4]
-	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.init(AbstractConfiguredSecurityBuilder.java:338) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.doBuild(AbstractConfiguredSecurityBuilder.java:300) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at org.springframework.security.config.annotation.AbstractSecurityBuilder.build(AbstractSecurityBuilder.java:38) ~[spring-security-config-6.0.2.jar:6.0.2]
-	at com.univeristymanagement.api.config.AadOAuth2LoginSecurityConfig.filterChain(AadOAuth2LoginSecurityConfig.java:26) ~[main/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:139) ~[spring-beans-6.0.10.jar:6.0.10]
-	... 37 common frames omitted
-
-2023-07-19T13:08:20.283+03:00  INFO 3212 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 3212 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:08:20.285+03:00 DEBUG 3212 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:08:20.286+03:00  INFO 3212 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:08:21.712+03:00  INFO 3212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:08:21.804+03:00  INFO 3212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:08:22.666+03:00  INFO 3212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:08:22.685+03:00  INFO 3212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:08:22.686+03:00  INFO 3212 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:08:22.852+03:00  INFO 3212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:08:22.853+03:00  INFO 3212 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2499 ms
-2023-07-19T13:08:23.227+03:00  INFO 3212 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:08:23.317+03:00  INFO 3212 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:08:23.321+03:00  INFO 3212 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:08:23.527+03:00  INFO 3212 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:08:23.797+03:00  INFO 3212 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:08:23.825+03:00  INFO 3212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:08:24.083+03:00  INFO 3212 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@36d7a68a
-2023-07-19T13:08:24.085+03:00  INFO 3212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:08:24.546+03:00  INFO 3212 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:08:25.742+03:00  INFO 3212 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:08:25.953+03:00  INFO 3212 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:08:26.564+03:00  WARN 3212 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:08:27.887+03:00  WARN 3212 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 733e423e-c2fb-4b32-904a-142a8f673110
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2023-07-19T13:08:28.027+03:00  INFO 3212 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-07-19T13:08:28.043+03:00  INFO 3212 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2ce7ec5f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65bc50c9, org.springframework.security.web.context.SecurityContextHolderFilter@446dc997, org.springframework.security.web.header.HeaderWriterFilter@4ac7927a, org.springframework.web.filter.CorsFilter@7b381066, org.springframework.security.web.csrf.CsrfFilter@297da2c3, org.springframework.security.web.authentication.logout.LogoutFilter@63f08f9f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@53741683, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4867f5cf, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@12ff3df, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7f2c36de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69815126, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a29520e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12b962b1, org.springframework.security.web.access.ExceptionTranslationFilter@5d18a787, org.springframework.security.web.access.intercept.AuthorizationFilter@5e3a577a]
-2023-07-19T13:08:28.300+03:00  INFO 3212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-07-19T13:08:28.324+03:00  INFO 3212 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 8.561 seconds (process running for 9.348)
-2023-07-19T13:08:28.787+03:00  INFO 3212 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-07-19T13:08:28.787+03:00  INFO 3212 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-19T13:08:28.790+03:00  INFO 3212 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2023-07-19T13:10:10.636+03:00  INFO 3212 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:10:10.640+03:00  INFO 3212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:10:10.644+03:00  INFO 3212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:10:36.983+03:00  INFO 20620 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 20620 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:10:36.985+03:00 DEBUG 20620 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:10:36.986+03:00  INFO 20620 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:10:39.152+03:00  INFO 20620 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:10:39.314+03:00  INFO 20620 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 147 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:10:40.526+03:00  INFO 20620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:10:40.668+03:00  INFO 20620 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3612 ms
-2023-07-19T13:10:41.005+03:00  INFO 20620 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:10:41.104+03:00  INFO 20620 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:10:41.108+03:00  INFO 20620 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:10:41.294+03:00  INFO 20620 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:10:41.498+03:00  INFO 20620 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:10:41.521+03:00  INFO 20620 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:10:41.728+03:00  INFO 20620 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2444c3df
-2023-07-19T13:10:41.730+03:00  INFO 20620 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:10:42.133+03:00  INFO 20620 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:10:43.242+03:00  INFO 20620 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:10:43.440+03:00  INFO 20620 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:11:03.865+03:00  INFO 11156 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 11156 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:11:03.866+03:00 DEBUG 11156 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:11:03.867+03:00  INFO 11156 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:11:05.182+03:00  INFO 11156 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:11:05.260+03:00  INFO 11156 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:11:06.065+03:00  INFO 11156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:11:06.077+03:00  INFO 11156 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:11:06.078+03:00  INFO 11156 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:11:06.198+03:00  INFO 11156 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:11:06.198+03:00  INFO 11156 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2272 ms
-2023-07-19T13:11:06.531+03:00  INFO 11156 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:11:06.620+03:00  INFO 11156 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:11:06.623+03:00  INFO 11156 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:11:06.797+03:00  INFO 11156 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:11:06.992+03:00  INFO 11156 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:11:07.019+03:00  INFO 11156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:11:07.263+03:00  INFO 11156 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1eb6037d
-2023-07-19T13:11:07.266+03:00  INFO 11156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:11:07.699+03:00  INFO 11156 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:11:08.828+03:00  INFO 11156 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:11:09.057+03:00  INFO 11156 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:11:09.572+03:00  WARN 11156 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:11:10.813+03:00  WARN 11156 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 8f0ec5ad-0959-48ca-8859-9aca71762945
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2023-07-19T13:11:10.951+03:00  INFO 11156 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-07-19T13:11:10.976+03:00  INFO 11156 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@302692b1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c52c362, org.springframework.security.web.context.SecurityContextHolderFilter@6d0d5147, org.springframework.security.web.header.HeaderWriterFilter@5ae5a507, org.springframework.web.filter.CorsFilter@7f794b0f, org.springframework.security.web.csrf.CsrfFilter@29422e61, org.springframework.security.web.authentication.logout.LogoutFilter@606c2e4b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@19598b38, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@14144cc9, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@efe75a2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5cd5e1b6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63f08f9f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2cbc0224, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a49cdd6, org.springframework.security.web.access.ExceptionTranslationFilter@75392381, org.springframework.security.web.access.intercept.AuthorizationFilter@4b682e71]
-2023-07-19T13:11:11.269+03:00  INFO 11156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-07-19T13:11:11.291+03:00  INFO 11156 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 7.996 seconds (process running for 8.723)
-2023-07-19T13:11:11.670+03:00  INFO 11156 --- [RMI TCP Connection(20)-192.168.56.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-07-19T13:11:11.670+03:00  INFO 11156 --- [RMI TCP Connection(20)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-19T13:11:11.672+03:00  INFO 11156 --- [RMI TCP Connection(20)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-07-19T13:11:33.698+03:00  INFO 11156 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:11:33.701+03:00  INFO 11156 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:11:33.705+03:00  INFO 11156 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:14:38.597+03:00  INFO 26516 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 26516 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:14:38.599+03:00 DEBUG 26516 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:14:38.600+03:00  INFO 26516 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:14:39.575+03:00  INFO 26516 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:14:39.631+03:00  INFO 26516 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:14:40.219+03:00  INFO 26516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:14:40.228+03:00  INFO 26516 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:14:40.228+03:00  INFO 26516 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:14:40.313+03:00  INFO 26516 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:14:40.313+03:00  INFO 26516 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1669 ms
-2023-07-19T13:14:40.555+03:00  INFO 26516 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:14:40.609+03:00  INFO 26516 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:14:40.611+03:00  INFO 26516 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:14:40.740+03:00  INFO 26516 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:14:40.886+03:00  INFO 26516 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:14:40.900+03:00  INFO 26516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:14:41.062+03:00  INFO 26516 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@bf4e48e
-2023-07-19T13:14:41.064+03:00  INFO 26516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:14:41.372+03:00  INFO 26516 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:14:42.105+03:00  INFO 26516 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:14:42.265+03:00  INFO 26516 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:14:42.634+03:00  WARN 26516 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:14:43.501+03:00  WARN 26516 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 00c0cfad-4401-43c6-9fa7-528d751f6e20
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2023-07-19T13:14:43.596+03:00  INFO 26516 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-07-19T13:14:43.610+03:00  INFO 26516 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c4335c8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e2abb58, org.springframework.security.web.context.SecurityContextHolderFilter@4bd7e0b6, org.springframework.security.web.header.HeaderWriterFilter@63f08f9f, org.springframework.web.filter.CorsFilter@943d0c2, org.springframework.security.web.csrf.CsrfFilter@22a89db, org.springframework.security.web.authentication.logout.LogoutFilter@8850865, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@80347b2, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@44eda25b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@529b8e41, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@258e5601, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4fc9e73d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@14144cc9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57f31caf, org.springframework.security.web.access.ExceptionTranslationFilter@6d0d5147, org.springframework.security.web.access.intercept.AuthorizationFilter@1277a6a1]
-2023-07-19T13:14:43.834+03:00  INFO 26516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-07-19T13:14:43.850+03:00  INFO 26516 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 5.694 seconds (process running for 6.276)
-2023-07-19T13:14:44.241+03:00  INFO 26516 --- [RMI TCP Connection(2)-192.168.56.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-07-19T13:14:44.242+03:00  INFO 26516 --- [RMI TCP Connection(2)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-19T13:14:44.244+03:00  INFO 26516 --- [RMI TCP Connection(2)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-07-19T13:15:31.611+03:00  INFO 26516 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:15:31.615+03:00  INFO 26516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:15:31.619+03:00  INFO 26516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:17:51.360+03:00  INFO 21560 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 21560 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:17:51.361+03:00 DEBUG 21560 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:17:51.362+03:00  INFO 21560 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:17:52.656+03:00  INFO 21560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:17:52.740+03:00  INFO 21560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:17:53.611+03:00  INFO 21560 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:17:53.624+03:00  INFO 21560 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:17:53.625+03:00  INFO 21560 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:17:53.734+03:00  INFO 21560 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:17:53.734+03:00  INFO 21560 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2319 ms
-2023-07-19T13:17:54.125+03:00  INFO 21560 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:17:54.221+03:00  INFO 21560 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:17:54.224+03:00  INFO 21560 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:17:54.446+03:00  INFO 21560 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:17:54.643+03:00  INFO 21560 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:17:54.675+03:00  INFO 21560 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:17:54.875+03:00  INFO 21560 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42dd7d82
-2023-07-19T13:17:54.876+03:00  INFO 21560 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:17:55.392+03:00  INFO 21560 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:17:56.512+03:00  INFO 21560 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:17:56.701+03:00  INFO 21560 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:17:57.163+03:00  WARN 21560 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:17:58.306+03:00  WARN 21560 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: ef3939c8-0592-4504-880c-d3468cf9b768
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2023-07-19T13:17:58.471+03:00  INFO 21560 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-07-19T13:17:58.489+03:00  INFO 21560 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@15844237, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e04dbc1, org.springframework.security.web.context.SecurityContextHolderFilter@29422e61, org.springframework.security.web.header.HeaderWriterFilter@69815126, org.springframework.web.filter.CorsFilter@50cb64d5, org.springframework.security.web.csrf.CsrfFilter@3285c141, org.springframework.security.web.authentication.logout.LogoutFilter@4fc9e73d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a3251ad, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2c6ed95a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@9be2897, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@12ff3df, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b5a3bba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4867f5cf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e1c566d, org.springframework.security.web.access.ExceptionTranslationFilter@446dc997, org.springframework.security.web.access.intercept.AuthorizationFilter@5aa0e9c6]
-2023-07-19T13:17:58.762+03:00  INFO 21560 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-07-19T13:17:58.784+03:00  INFO 21560 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 7.98 seconds (process running for 8.743)
-2023-07-19T13:17:58.981+03:00  INFO 21560 --- [RMI TCP Connection(3)-192.168.56.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-07-19T13:17:58.982+03:00  INFO 21560 --- [RMI TCP Connection(3)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-19T13:17:58.985+03:00  INFO 21560 --- [RMI TCP Connection(3)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-07-19T13:22:04.743+03:00  INFO 21560 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:22:04.746+03:00  INFO 21560 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:22:04.749+03:00  INFO 21560 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:49:03.597+03:00  INFO 27876 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 27876 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:49:03.599+03:00 DEBUG 27876 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:49:03.600+03:00  INFO 27876 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:49:04.604+03:00  INFO 27876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:49:04.668+03:00  INFO 27876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:49:05.272+03:00  INFO 27876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:49:05.280+03:00  INFO 27876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:49:05.280+03:00  INFO 27876 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:49:05.358+03:00  INFO 27876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:49:05.359+03:00  INFO 27876 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1708 ms
-2023-07-19T13:49:05.598+03:00  INFO 27876 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:49:05.669+03:00  INFO 27876 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:49:05.672+03:00  INFO 27876 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:49:05.846+03:00  INFO 27876 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:49:06.007+03:00  INFO 27876 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:49:06.023+03:00  INFO 27876 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:49:06.221+03:00  INFO 27876 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@bf4e48e
-2023-07-19T13:49:06.223+03:00  INFO 27876 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:49:06.518+03:00  INFO 27876 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:49:07.312+03:00  INFO 27876 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:49:07.475+03:00  INFO 27876 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:49:07.846+03:00  WARN 27876 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:49:08.665+03:00  WARN 27876 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 82f6c91c-1e20-44cb-a052-794fcb204e16
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2023-07-19T13:49:08.759+03:00  INFO 27876 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-07-19T13:49:08.770+03:00  INFO 27876 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45bde54d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ae49f31, org.springframework.security.web.context.SecurityContextHolderFilter@53d3d604, org.springframework.security.web.header.HeaderWriterFilter@259647f2, org.springframework.web.filter.CorsFilter@121fe002, org.springframework.security.web.csrf.CsrfFilter@3d3e9163, org.springframework.security.web.authentication.logout.LogoutFilter@4b682e71, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@efe75a2, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6ed2aa8a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@d45acab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5c088d72, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e3a577a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ee34fe4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2778a7c3, org.springframework.security.web.access.ExceptionTranslationFilter@1464a177, org.springframework.security.web.access.intercept.AuthorizationFilter@56e589e5]
-2023-07-19T13:49:08.971+03:00  INFO 27876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-07-19T13:49:08.984+03:00  INFO 27876 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 5.827 seconds (process running for 6.421)
-2023-07-19T13:49:09.331+03:00  INFO 27876 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-07-19T13:49:09.331+03:00  INFO 27876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-19T13:49:09.333+03:00  INFO 27876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-07-19T13:49:56.348+03:00  INFO 27876 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:49:56.351+03:00  INFO 27876 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:49:56.354+03:00  INFO 27876 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:50:00.041+03:00  INFO 26256 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 26256 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:50:00.042+03:00 DEBUG 26256 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:50:00.043+03:00  INFO 26256 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:50:00.815+03:00  INFO 26256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:50:00.870+03:00  INFO 26256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:50:01.373+03:00  INFO 26256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:50:01.382+03:00  INFO 26256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:50:01.383+03:00  INFO 26256 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:50:01.463+03:00  INFO 26256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:50:01.463+03:00  INFO 26256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1385 ms
-2023-07-19T13:50:01.674+03:00  INFO 26256 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:50:01.747+03:00  INFO 26256 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:50:01.749+03:00  INFO 26256 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:50:01.889+03:00  INFO 26256 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:50:02.027+03:00  INFO 26256 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:50:02.043+03:00  INFO 26256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:50:02.180+03:00  INFO 26256 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4ef8090b
-2023-07-19T13:50:02.182+03:00  INFO 26256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:50:02.487+03:00  INFO 26256 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:50:03.282+03:00  INFO 26256 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:50:03.413+03:00  INFO 26256 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:50:03.794+03:00  WARN 26256 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:50:04.624+03:00  INFO 26256 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-07-19T13:50:04.687+03:00  INFO 26256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-07-19T13:50:04.700+03:00  INFO 26256 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 5.009 seconds (process running for 5.527)
-2023-07-19T13:50:05.021+03:00  INFO 26256 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-07-19T13:50:05.021+03:00  INFO 26256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-19T13:50:05.022+03:00  INFO 26256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-07-19T13:50:06.176+03:00  INFO 26256 --- [http-nio-8080-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 211 ms
-2023-07-19T13:50:44.998+03:00  INFO 26256 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:50:45.000+03:00  INFO 26256 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:50:45.003+03:00  INFO 26256 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-07-19T13:54:52.967+03:00  INFO 30364 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 30364 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
-2023-07-19T13:54:52.968+03:00 DEBUG 30364 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-07-19T13:54:52.969+03:00  INFO 30364 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
-2023-07-19T13:54:53.724+03:00  INFO 30364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-19T13:54:53.783+03:00  INFO 30364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 6 JPA repository interfaces.
-2023-07-19T13:54:54.261+03:00  INFO 30364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-07-19T13:54:54.268+03:00  INFO 30364 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-19T13:54:54.269+03:00  INFO 30364 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
-2023-07-19T13:54:54.342+03:00  INFO 30364 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-19T13:54:54.342+03:00  INFO 30364 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1339 ms
-2023-07-19T13:54:54.551+03:00  INFO 30364 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-19T13:54:54.616+03:00  INFO 30364 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-19T13:54:54.618+03:00  INFO 30364 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-19T13:54:54.745+03:00  INFO 30364 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:54:54.882+03:00  INFO 30364 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-19T13:54:54.898+03:00  INFO 30364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-19T13:54:55.048+03:00  INFO 30364 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@164dea80
-2023-07-19T13:54:55.050+03:00  INFO 30364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-19T13:54:55.289+03:00  INFO 30364 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-19T13:54:56.017+03:00  INFO 30364 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-07-19T13:54:56.142+03:00  INFO 30364 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:54:56.457+03:00  WARN 30364 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-19T13:54:57.260+03:00  INFO 30364 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-07-19T13:54:57.331+03:00  INFO 30364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-07-19T13:54:57.344+03:00  INFO 30364 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 4.695 seconds (process running for 5.127)
-2023-07-19T13:54:57.737+03:00  INFO 30364 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-07-19T13:54:57.737+03:00  INFO 30364 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-07-19T13:54:57.739+03:00  INFO 30364 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-07-19T13:54:58.464+03:00  INFO 30364 --- [http-nio-8080-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 260 ms
-2023-07-19T13:55:10.399+03:00  INFO 30364 --- [http-nio-8080-exec-5] c.u.api.controller.FacultyController     : Faculty created with id: 1
-2023-07-19T13:55:17.297+03:00  INFO 30364 --- [http-nio-8080-exec-7] c.u.api.controller.FacultyController     : Academic departments fetched for faculty with id: 1
-2023-07-19T13:58:35.357+03:00  INFO 30364 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-07-19T13:58:35.359+03:00  INFO 30364 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-07-19T13:58:35.361+03:00  INFO 30364 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-20T14:06:01.377+03:00  INFO 24404 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T14:06:01.379+03:00  INFO 24404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-20T14:06:01.382+03:00  INFO 24404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-20T14:06:22.277+03:00  INFO 20344 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 20344 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
+2023-07-20T14:06:22.279+03:00 DEBUG 20344 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-07-20T14:06:22.279+03:00  INFO 20344 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
+2023-07-20T14:06:23.064+03:00  INFO 20344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-20T14:06:23.115+03:00  INFO 20344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 6 JPA repository interfaces.
+2023-07-20T14:06:23.588+03:00  INFO 20344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-20T14:06:23.595+03:00  INFO 20344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-20T14:06:23.595+03:00  INFO 20344 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-20T14:06:23.667+03:00  INFO 20344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-20T14:06:23.668+03:00  INFO 20344 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1347 ms
+2023-07-20T14:06:23.849+03:00  INFO 20344 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-20T14:06:23.901+03:00  INFO 20344 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-07-20T14:06:23.903+03:00  INFO 20344 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-20T14:06:24.010+03:00  INFO 20344 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T14:06:24.131+03:00  INFO 20344 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-20T14:06:24.144+03:00  INFO 20344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-20T14:06:24.274+03:00  INFO 20344 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@58021c3c
+2023-07-20T14:06:24.276+03:00  INFO 20344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-20T14:06:24.517+03:00  INFO 20344 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T14:06:25.170+03:00  INFO 20344 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-20T14:06:25.304+03:00  INFO 20344 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T14:06:25.633+03:00  WARN 20344 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-20T14:06:26.437+03:00  INFO 20344 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-20T14:06:26.500+03:00  INFO 20344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-20T14:06:26.512+03:00  INFO 20344 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 4.597 seconds (process running for 5.052)
+2023-07-20T14:06:26.712+03:00  INFO 20344 --- [RMI TCP Connection(2)-192.168.56.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-20T14:06:26.713+03:00  INFO 20344 --- [RMI TCP Connection(2)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-20T14:06:26.714+03:00  INFO 20344 --- [RMI TCP Connection(2)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-07-20T14:06:27.826+03:00  INFO 20344 --- [http-nio-8080-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 214 ms
+2023-07-20T14:06:33.179+03:00  INFO 20344 --- [http-nio-8080-exec-8] c.u.a.c.AcademicDepartmentController     : Create academic department
+2023-07-20T14:06:51.068+03:00  INFO 20344 --- [http-nio-8080-exec-10] c.u.api.controller.FacultyController     : All faculties fetched quantity: 1
+2023-07-20T14:07:04.907+03:00  INFO 20344 --- [http-nio-8080-exec-3] c.u.a.c.AcademicDepartmentController     : Create academic department
+2023-07-20T14:07:16.802+03:00  INFO 20344 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T14:07:16.803+03:00  INFO 20344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-20T14:07:16.806+03:00  INFO 20344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-20T14:08:51.412+03:00  INFO 6564 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 6564 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
+2023-07-20T14:08:51.413+03:00 DEBUG 6564 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-07-20T14:08:51.414+03:00  INFO 6564 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
+2023-07-20T14:08:52.208+03:00  INFO 6564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-20T14:08:52.268+03:00  INFO 6564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 6 JPA repository interfaces.
+2023-07-20T14:08:52.725+03:00  INFO 6564 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-20T14:08:52.731+03:00  INFO 6564 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-20T14:08:52.732+03:00  INFO 6564 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-07-20T14:08:52.802+03:00  INFO 6564 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-20T14:08:52.802+03:00  INFO 6564 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1356 ms
+2023-07-20T14:08:52.984+03:00  INFO 6564 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-20T14:08:53.036+03:00  INFO 6564 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-07-20T14:08:53.038+03:00  INFO 6564 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-20T14:08:53.147+03:00  INFO 6564 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T14:08:53.272+03:00  INFO 6564 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-20T14:08:53.285+03:00  INFO 6564 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-20T14:08:53.409+03:00  INFO 6564 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@164dea80
+2023-07-20T14:08:53.410+03:00  INFO 6564 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-20T14:08:53.649+03:00  INFO 6564 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-20T14:08:54.338+03:00  INFO 6564 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-20T14:08:54.465+03:00  INFO 6564 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T14:08:54.797+03:00  WARN 6564 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-20T14:08:55.554+03:00  INFO 6564 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-07-20T14:08:55.614+03:00  INFO 6564 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-20T14:08:55.626+03:00  INFO 6564 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 4.54 seconds (process running for 4.977)
+2023-07-20T14:08:55.931+03:00  INFO 6564 --- [RMI TCP Connection(2)-192.168.56.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-20T14:08:55.932+03:00  INFO 6564 --- [RMI TCP Connection(2)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-20T14:08:55.935+03:00  INFO 6564 --- [RMI TCP Connection(2)-192.168.56.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-07-20T14:08:56.528+03:00  INFO 6564 --- [http-nio-8080-exec-2] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 219 ms
+2023-07-20T14:09:26.535+03:00  INFO 6564 --- [http-nio-8080-exec-4] c.u.a.c.AcademicDepartmentController     : Get all academic departments
+2023-07-20T14:10:12.423+03:00  INFO 6564 --- [http-nio-8080-exec-6] c.u.api.controller.FacultyController     : Academic departments fetched for faculty with id: 1
+2023-07-20T14:10:27.330+03:00  INFO 6564 --- [http-nio-8080-exec-8] c.u.a.c.AcademicDepartmentController     : Get all academic departments
+2023-07-20T14:11:00.102+03:00  INFO 6564 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-20T14:11:00.104+03:00  INFO 6564 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-20T14:11:00.106+03:00  INFO 6564 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

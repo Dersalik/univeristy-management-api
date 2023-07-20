@@ -34,7 +34,7 @@ public class FacultyControllerIdValidationAspect {
 
             Long id = (Long) result.getArgs()[0];
 
-            if (!facultyService.isValidId(id) && id!=null) {
+            if (!facultyService.isValidId(id)) {
                 throw new ResourceNotFoundException("Faculty", "id", id );
             }
 
