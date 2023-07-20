@@ -26,7 +26,7 @@ public class AcademicDepartment {
 //    @Max(value = 70, message = "Name should not be greater than 70 characters")
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "faculty_id")
     private Faculty faculty;
 
