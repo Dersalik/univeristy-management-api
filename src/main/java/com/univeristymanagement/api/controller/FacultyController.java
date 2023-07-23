@@ -5,6 +5,7 @@ import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
 import com.univeristymanagement.api.model.Dto.FacultyCreateDto;
 import com.univeristymanagement.api.model.Dto.FacultyDto;
 import com.univeristymanagement.api.model.Dto.FacultyUpdateDto;
+import com.univeristymanagement.api.service.FacultyService;
 import com.univeristymanagement.api.service.impl.FacultyServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -30,7 +31,7 @@ import java.util.List;
 @RequestMapping("/api/v1/faculties")
 public class FacultyController {
 
-    private FacultyServiceImpl facultyService;
+    private FacultyService facultyService;
     private final Logger logger ;
 
 
@@ -136,7 +137,7 @@ public class FacultyController {
 
     @Operation(summary = "Assign academic department to faculty")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = FacultyDto.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "204", content = { @Content(schema = @Schema(implementation = FacultyDto.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
     })
     @PostMapping("/{facultyId}/assign-department/{departmentId}")

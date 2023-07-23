@@ -31,11 +31,20 @@ public class FacultyServiceImpl implements FacultyService {
         this.academicDepartmentRepository = academicDepartmentRepository;
         this.facultyRepository = facultyRepository;
     }
-
+    /**
+     * Checks if a faculty exists by id
+     * @param id
+     * @return boolean
+     */
     @Override
     public boolean isValidId(Long id) {
         return facultyRepository.existsById(id);
     }
+    /**
+     * Creates a faculty
+     * @param facultyDto
+     * @return FacultyDto
+     */
     @Override
     public FacultyDto createFaculty(FacultyCreateDto facultyDto) {
         Faculty faculty = FacultyMapper.createDtoToFaculty(facultyDto);
@@ -44,7 +53,10 @@ public class FacultyServiceImpl implements FacultyService {
         return FacultyMapper.facultyToDto(faculty);
 
     }
-
+    /**
+     * Gets all faculties
+     * @return List<FacultyDto>
+     */
     @Override
     public List<FacultyDto> getAllFaculties() {
         List<Faculty> faculties = facultyRepository.findAll();
@@ -54,11 +66,20 @@ public class FacultyServiceImpl implements FacultyService {
         return facultyDtos;
     }
 
+    /**
+     * Gets a faculty by id
+     * @param id
+     * @return FacultyDto
+     */
     @Override
     public FacultyDto getFacultyById(Long id) {
         return FacultyMapper.facultyToDto(facultyRepository.findById(id).get());
     }
-
+    /**
+     * Deletes a faculty by id
+     * @param id
+     * @return boolean
+     */
     @Override
     public boolean deleteFacultyById(Long id) {
 
@@ -66,7 +87,11 @@ public class FacultyServiceImpl implements FacultyService {
         return true;
 
     }
-
+    /**
+     * Gets all academic departments by faculty id
+     * @param id
+     * @return List<AcademicDepartmentDto>
+     */
     @Override
     public List<AcademicDepartmentDto> getAllAcademicDepartmentsByFacultyId(Long id) {
 
@@ -80,7 +105,12 @@ public class FacultyServiceImpl implements FacultyService {
     }
 
 
-
+    /**
+     * Updates a faculty
+     * @param id
+     * @param facultyDto
+     * @return
+     */
     @Override
     public FacultyDto updateFaculty(Long id, FacultyUpdateDto facultyDto) {
 
@@ -94,7 +124,11 @@ public class FacultyServiceImpl implements FacultyService {
         return FacultyMapper.facultyToDto(faculty);
     }
 
-
+    /**
+     * Assigns an academic department to a faculty
+     * @param facultyId
+     * @param academicDepartmentId
+     */
     @Override
     public void assignAcademicDepartmentToFaculty(Long facultyId, Long academicDepartmentId) {
         // Retrieve the Faculty and AcademicDepartment entities

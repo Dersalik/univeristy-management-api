@@ -3,6 +3,7 @@ package com.univeristymanagement.api.controller;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentCreateDto;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentUpdateDto;
+import com.univeristymanagement.api.service.AcademicDepartmentService;
 import com.univeristymanagement.api.service.impl.AcademicDepartmentServiceImp;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -28,7 +29,7 @@ public class AcademicDepartmentController {
 
     private final Logger logger ;
 
-    private AcademicDepartmentServiceImp academicDepartmentService;
+    private AcademicDepartmentService academicDepartmentService;
 
     @Autowired
     public AcademicDepartmentController(AcademicDepartmentServiceImp academicDepartmentService){
@@ -62,7 +63,7 @@ public class AcademicDepartmentController {
 
     @Operation(summary = "Create new academic department")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = { @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "201", content = { @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
     })
     @PostMapping
     public ResponseEntity<AcademicDepartmentDto> createAcademicDepartment(@Valid @RequestBody AcademicDepartmentCreateDto academicDepartmentDto) {
@@ -81,6 +82,7 @@ public class AcademicDepartmentController {
     @DeleteMapping("/{id}")
     public ResponseEntity deleteAcademicDepartmentById(@PathVariable Long id) {
         logger.info("Delete academic department by id");
+        academicDepartmentService.deleteAcademicDepartmentById(id);
         return ResponseEntity.noContent().build();
     }
 

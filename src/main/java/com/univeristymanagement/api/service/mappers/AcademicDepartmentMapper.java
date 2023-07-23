@@ -22,10 +22,5 @@ public class AcademicDepartmentMapper {
         return academicDepartmentDto;
     }
 
-    public static AcademicDepartmentDto academicDepartmentToDto(AcademicDepartment academicDepartment) {
-        AcademicDepartmentDto academicDepartmentDto = new AcademicDepartmentDto();
-        academicDepartmentDto.setId(academicDepartment.getId());
-        academicDepartmentDto.setName(academicDepartment.getName());
-        return academicDepartmentDto;
-    }
+
 }

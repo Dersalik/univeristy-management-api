@@ -24,14 +24,12 @@ public class StudyProgram {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "Name is required")
-//    @Max(value = 70, message = "Name should not be greater than 70 characters")
     private String name;
     @NotNull(message = "Description is required")
-//    @Max(value = 1000, message = "Description should not be greater than 200 characters")
     private String description;
     @NotNull(message = "Capacity is required")
-//    @Max(value = 1000, message = "Capacity should not be greater than 200 characters")
-//    @Min(value = 1, message = "Capacity should not be less than 1")
+    @Min(value = 1, message = "Capacity must be greater than 0")
+    @Max(value = 100, message = "Capacity must be less than 100")
     private int capacity;
 
     @ManyToOne

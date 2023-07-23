@@ -4,6 +4,7 @@ import com.univeristymanagement.api.model.Academic;
 import com.univeristymanagement.api.model.AcademicDepartment;
 import com.univeristymanagement.api.model.Dto.AcademicDto;
 import com.univeristymanagement.api.model.Dto.AcademicRegistrationDTO;
+import com.univeristymanagement.api.model.Dto.AcademicUpdateDto;
 
 public class AcademicMapper {
 
@@ -31,7 +32,6 @@ public class AcademicMapper {
         academicDto.setFirstName(academic.getFirstName());
         academicDto.setLastName(academic.getLastName());
         academicDto.setEmail(academic.getEmail());
-        academicDto.setPassword(academic.getPassword());
         academicDto.setPreNominalTitles(academic.getPreNominalTitles());
         academicDto.setPostNominalTitles(academic.getPostNominalTitles());
         academicDto.setAcademicDepartmentDto(
@@ -39,6 +39,18 @@ public class AcademicMapper {
                 ,FacultyMapper.facultyToDto(academic.getAcademicDepartment().getFaculty())));
 
         return academicDto;
+    }
+
+    public static Academic academicUpdateDtoToAcademic(AcademicUpdateDto academicDto,AcademicDepartment department){
+
+        Academic academic = new Academic();
+        academic.setFirstName(academicDto.getFirstName());
+        academic.setLastName(academicDto.getLastName());
+        academic.setPreNominalTitles(academicDto.getPreNominalTitles());
+        academic.setPostNominalTitles(academicDto.getPostNominalTitles());
+        academic.setAcademicDepartment(department);
+
+        return academic;
     }
 
 }

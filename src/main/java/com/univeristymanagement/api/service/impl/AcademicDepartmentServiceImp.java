@@ -32,6 +32,10 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
         this.facultyRepository = facultyRepository;
     }
 
+    /**
+     * Gets all academic departments
+     * @return List<AcademicDepartmentDto>
+     */
     @Override
     public List<AcademicDepartmentDto> getAllAcademicDepartments() {
         return academicDepartmentRepository.findAll().stream().map(academicDepartment -> {
@@ -41,7 +45,11 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
         }).collect(Collectors.toList());
     }
 
-
+    /**
+     * Creates an academic department
+     * @param academicDepartmentDto
+     * @return AcademicDepartmentDto
+     */
     @Override
     public AcademicDepartmentDto createAcademicDepartment(AcademicDepartmentCreateDto academicDepartmentDto) {
 
@@ -60,6 +68,11 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
 
     }
 
+    /**
+     *  Gets an academic department by id
+     * @param id
+     * @return AcademicDepartmentDto
+     */
     @Override
     public AcademicDepartmentDto getAcademicDepartmentById(Long id) {
         checkIfDepartmentExistsById(id);
@@ -71,7 +84,11 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
 
         return academicDepartmentDto;
     }
-
+    /**
+     * Deletes an academic department by id
+     * @param id
+     * @return boolean
+     */
     @Override
     public boolean deleteAcademicDepartmentById(Long id) {
         checkIfDepartmentExistsById(id);
@@ -80,6 +97,12 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
         return true;
     }
 
+    /**
+     *  Updates an academic department by id
+     * @param id
+     * @param academicDepartmentDto
+     * @return AcademicDepartmentDto
+     */
     @Override
     public AcademicDepartmentDto  updateAcademicDepartmentById(Long id, AcademicDepartmentUpdateDto academicDepartmentDto)
     {
@@ -100,12 +123,18 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
     }
 
 
-
+    /**
+     *  Checks if an academic department exists by id
+     * @param id
+     */
     private void checkIfDepartmentExistsById(Long id) {
         academicDepartmentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("AcademicDepartment", "id", id));
     }
-
+    /**
+     *  Checks if a faculty exists by id
+     * @param id
+     */
     private void checkIfFacultyExistsById(Long id) {
         facultyRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Faculty", "id", id));
