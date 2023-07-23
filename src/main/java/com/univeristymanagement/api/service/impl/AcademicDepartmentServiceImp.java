@@ -16,19 +16,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
 @Service
 @RequiredArgsConstructor
-public class AcademicDepartmentImp implements AcademicDepartmentService {
+public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
 
     private AcademicDepartmentRepository academicDepartmentRepository;
 
     private FacultyRepository facultyRepository;
     @Autowired
-    public AcademicDepartmentImp(AcademicDepartmentRepository academicDepartmentRepository, FacultyRepository facultyRepository){
+    public AcademicDepartmentServiceImp(AcademicDepartmentRepository academicDepartmentRepository, FacultyRepository facultyRepository){
         this.academicDepartmentRepository = academicDepartmentRepository;
         this.facultyRepository = facultyRepository;
     }
@@ -36,7 +35,7 @@ public class AcademicDepartmentImp implements AcademicDepartmentService {
     @Override
     public List<AcademicDepartmentDto> getAllAcademicDepartments() {
         return academicDepartmentRepository.findAll().stream().map(academicDepartment -> {
-            AcademicDepartmentDto academicDepartmentDto = AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment
+            AcademicDepartmentDto academicDepartmentDto = AcademicDepartmentMapper.academicDepartmentToDto(academicDepartment
             , FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
             return academicDepartmentDto;
         }).collect(Collectors.toList());
@@ -55,7 +54,7 @@ public class AcademicDepartmentImp implements AcademicDepartmentService {
 
         academicDepartmentRepository.save(academicDepartment);
 
-        return AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment,
+        return AcademicDepartmentMapper.academicDepartmentToDto(academicDepartment,
                 FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
 
 
@@ -67,7 +66,7 @@ public class AcademicDepartmentImp implements AcademicDepartmentService {
 
         AcademicDepartment academicDepartment = academicDepartmentRepository.findById(id).get();
 
-        AcademicDepartmentDto academicDepartmentDto = AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment
+        AcademicDepartmentDto academicDepartmentDto = AcademicDepartmentMapper.academicDepartmentToDto(academicDepartment
         , FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
 
         return academicDepartmentDto;
@@ -93,7 +92,7 @@ public class AcademicDepartmentImp implements AcademicDepartmentService {
         academicDepartmentRepository.save(academicDepartment);
 
 
-        AcademicDepartmentDto academicDepartmentDtoToReturn = AcademicDepartmentMapper.academicDepartmentToAcademicDepartmentDto(academicDepartment
+        AcademicDepartmentDto academicDepartmentDtoToReturn = AcademicDepartmentMapper.academicDepartmentToDto(academicDepartment
         , FacultyMapper.facultyToDto(academicDepartment.getFaculty()));
 
 

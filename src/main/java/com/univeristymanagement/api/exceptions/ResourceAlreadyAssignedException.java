@@ -2,9 +2,6 @@ package com.univeristymanagement.api.exceptions;
 
 public class ResourceAlreadyAssignedException extends RuntimeException{
 
-    public ResourceAlreadyAssignedException(String message) {
-        super(message);
-    }
 
     public ResourceAlreadyAssignedException( String nameOfAlreadyAssignedResource,long idOfAlreadyAssigned
             , String nameOfResourceAttemptedToAssignTo, long idOfResourceAttemptedToAssignTo) {
@@ -13,10 +10,4 @@ public class ResourceAlreadyAssignedException extends RuntimeException{
 
     }
 
-
-
-
-    public ResourceAlreadyAssignedException() {
-        super();
-    }
 }

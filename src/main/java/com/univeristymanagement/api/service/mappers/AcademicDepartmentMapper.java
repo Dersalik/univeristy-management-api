@@ -13,12 +13,19 @@ public class AcademicDepartmentMapper {
         return academicDepartment;
     }
 
-    public static AcademicDepartmentDto academicDepartmentToAcademicDepartmentDto(AcademicDepartment academicDepartment
+    public static AcademicDepartmentDto academicDepartmentToDto(AcademicDepartment academicDepartment
     , FacultyDto facultyDto) {
         AcademicDepartmentDto academicDepartmentDto = new AcademicDepartmentDto();
         academicDepartmentDto.setId(academicDepartment.getId());
         academicDepartmentDto.setName(academicDepartment.getName());
         academicDepartmentDto.setFaculty(facultyDto);
+        return academicDepartmentDto;
+    }
+
+    public static AcademicDepartmentDto academicDepartmentToDto(AcademicDepartment academicDepartment) {
+        AcademicDepartmentDto academicDepartmentDto = new AcademicDepartmentDto();
+        academicDepartmentDto.setId(academicDepartment.getId());
+        academicDepartmentDto.setName(academicDepartment.getName());
         return academicDepartmentDto;
     }
 }
