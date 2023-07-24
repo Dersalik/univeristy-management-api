@@ -26,10 +26,10 @@ public class StudyProgramUpdateDto {
     @Max(value = 100, message = "Capacity must be less than 100")
     @Schema(description = "Capacity of the study program", example = "50", required = true)
     private int capacity;
-    @NotNull(message = "Academic  id is required")
-    @Schema(description = "Academic id of the study program", example = "1", required = true)
-    private Long academicId;
-    @Schema(description = "Department id of the study program", example = "1", required = true)
-    @NotNull(message = "Department id is required")
-    private Long departmentId;
+//    @NotNull(message = "Academic  id is required")
+//    @Schema(description = "Academic id of the study program", example = "1", required = true)
+//    private Long academicId;
+//    @Schema(description = "Department id of the study program", example = "1", required = true)
+//    @NotNull(message = "Department id is required")
+//    private Long departmentId;
 }

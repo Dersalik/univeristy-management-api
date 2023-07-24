@@ -1,13 +1,13 @@
 package com.univeristymanagement.api.controller;
 
-import com.univeristymanagement.api.model.Dto.AcademicDepartmentCreateDto;
-import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
-import com.univeristymanagement.api.model.Dto.AcademicDepartmentUpdateDto;
-import com.univeristymanagement.api.model.Dto.AcademicDto;
+import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
+import com.univeristymanagement.api.model.Dto.*;
 import com.univeristymanagement.api.service.AcademicDepartmentService;
 import com.univeristymanagement.api.service.impl.AcademicDepartmentServiceImp;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 @RequestMapping("/api/v1/academic-departments")
 @Tag(name = "Academic Department", description = "Academic Department API")
 @ApiResponses({
-        @ApiResponse(responseCode = "500", content = { @Content( mediaType = "application/json") }),
+        @ApiResponse(responseCode = "500", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") }),
 })
 public class AcademicDepartmentController {
 
@@ -42,7 +42,7 @@ public class AcademicDepartmentController {
 
     @Operation(summary = "Get all academic departments")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = { @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDepartmentDto.class,type = "array"), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AcademicDepartmentDto.class)),mediaType = "application/json")),
     })
     @GetMapping
     public ResponseEntity<List<AcademicDepartmentDto>> getAllAcademicDepartments() {
@@ -52,7 +52,7 @@ public class AcademicDepartmentController {
 
     @Operation(summary = "Get academic department by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = { @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDepartmentDto.class,type = "array"), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
     })
     @GetMapping("/{id}")
@@ -64,7 +64,7 @@ public class AcademicDepartmentController {
 
     @Operation(summary = "Create new academic department")
     @ApiResponses({
-            @ApiResponse(responseCode = "201", content = { @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "201", content = { @Content(schema = @Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
     })
     @PostMapping
     public ResponseEntity<AcademicDepartmentDto> createAcademicDepartment(@Valid @RequestBody AcademicDepartmentCreateDto academicDepartmentDto) {
@@ -77,7 +77,7 @@ public class AcademicDepartmentController {
 
     @Operation(summary = "Delete academic department by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "204", content = { @Content( mediaType = "application/json") }),
+            @ApiResponse(responseCode = "204"),
             @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
     })
     @DeleteMapping("/{id}")
@@ -89,7 +89,7 @@ public class AcademicDepartmentController {
 
     @Operation(summary = "Update academic department by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = { @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
     })
     @PutMapping("/{id}")
@@ -104,7 +104,7 @@ public class AcademicDepartmentController {
     @PostMapping("/{id}/add-academic/{academicId}")
     @Operation(summary = "Add academic to academic department")
     @ApiResponses({
-            @ApiResponse(responseCode = "204", content = { @Content( mediaType = "application/json") }),
+            @ApiResponse(responseCode = "204"),
             @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
     })
     public ResponseEntity addAcademicToAcademicDepartment(@PathVariable Long id, @PathVariable Long academicId) {
@@ -118,13 +118,38 @@ public class AcademicDepartmentController {
     @GetMapping("/{id}/academics")
     @Operation(summary = "Get all academics by academic department id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = { @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDto.class,type = "array"), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "200",  content = @Content(array = @ArraySchema(schema = @Schema(implementation = AcademicDto.class)),mediaType = "application/json")),
             @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
     })
     public ResponseEntity<List<AcademicDto>> getAllAcademicsByAcademicDepartmentId(@PathVariable Long id) {
         logger.info("Get all academics by academic department id");
 
         return ResponseEntity.ok().body(academicDepartmentService.getAllAcademicsByAcademicDepartmentId(id));
+    }
+
+    @PostMapping("/{id}/add-study-program/{studyProgramId}")
+    @Operation(summary = "Add study program to academic department")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204"),
+            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+    })
+    public ResponseEntity addStudyProgramToAcademicDepartment(@PathVariable Long id, @PathVariable Long studyProgramId) {
+        logger.info("Add study program to academic department");
+        academicDepartmentService.addStudyProgramToAcademicDepartment(id, studyProgramId);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/study-programs")
+    @Operation(summary = "Get all study programs by academic department id")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = StudyProgramDto.class)),mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+    })
+    public ResponseEntity<List<StudyProgramDto>> getAllStudyProgramsByAcademicDepartmentId(@PathVariable Long id) {
+        logger.info("Get all study programs by academic department id");
+
+        return ResponseEntity.ok().body(academicDepartmentService.getAllStudyProgramsByAcademicDepartmentId(id));
     }
 
 }

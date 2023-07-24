@@ -1,12 +1,13 @@
 package com.univeristymanagement.api.controller;
 
 
-import com.univeristymanagement.api.model.Dto.StudyProgramCreateDto;
-import com.univeristymanagement.api.model.Dto.StudyProgramDto;
-import com.univeristymanagement.api.model.Dto.StudyProgramUpdateDto;
+import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
+import com.univeristymanagement.api.model.Dto.*;
 import com.univeristymanagement.api.service.StudyProgramService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,7 +23,7 @@ import java.util.List;
 @RequestMapping("/api/v1/study-programs")
 @Tag(name = "Study Program", description = "Study Program API")
 @ApiResponses({
-        @ApiResponse(responseCode = "500", content = { @Content( mediaType = "application/json") }),
+        @ApiResponse(responseCode = "500", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") }),
 })
 public class StudyProgramController {
 
@@ -37,7 +38,7 @@ private StudyProgramService studyProgramService;
     @GetMapping({"/"})
     @Operation(summary = "Get all study programs")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Found the study programs", content = @Content(mediaType = "application/json"))
+            @ApiResponse(responseCode = "200",content = @Content(array = @ArraySchema(schema = @Schema(implementation = StudyProgramDto.class)),mediaType = "application/json"))
     })
     public ResponseEntity<List<StudyProgramDto>> getStudyPrograms(){
         List<StudyProgramDto> studyPrograms = studyProgramService.getAllStudyPrograms();
@@ -47,38 +48,39 @@ private StudyProgramService studyProgramService;
     @GetMapping({"/{id}"})
     @Operation(summary = "Get study program by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Found the study program", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = StudyProgramDto.class),mediaType = "application/json")),
             @ApiResponse(responseCode = "404", description = "Study program not found", content = @Content(mediaType = "application/json"))
     })
-    public ResponseEntity<StudyProgramDto> getStudyProgramById(Long id){
+    public ResponseEntity<StudyProgramDto> getStudyProgramById(@PathVariable Long id){
         StudyProgramDto studyProgram = studyProgramService.getStudyProgramById(id);
         return new ResponseEntity<>(studyProgram, HttpStatus.OK);
     }
     @Operation(summary = "Delete study program by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Deleted the study program", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = StudyProgramDto.class),mediaType = "application/json")),
             @ApiResponse(responseCode = "404", description = "Study program not found", content = @Content(mediaType = "application/json"))
     })
     @DeleteMapping({"/{id}"})
-    public ResponseEntity<StudyProgramDto> deleteStudyProgramById(Long id){
+    public ResponseEntity<StudyProgramDto> deleteStudyProgramById(@PathVariable Long id){
         StudyProgramDto studyProgram = studyProgramService.deleteStudyProgramById(id);
         return new ResponseEntity<>(studyProgram, HttpStatus.OK);
     }
 
     @Operation(summary = "Update study program by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Updated the study program", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = StudyProgramDto.class),mediaType = "application/json")),
             @ApiResponse(responseCode = "404", description = "Study program not found", content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "400", description = "Invalid input")
     })
     @PutMapping ({"/{id}"})
-    public ResponseEntity<StudyProgramDto> updateStudyProgramById(Long id, @Valid @RequestBody StudyProgramUpdateDto studyProgramDto){
+    public ResponseEntity<StudyProgramDto> updateStudyProgramById(@PathVariable Long id, @Valid @RequestBody StudyProgramUpdateDto studyProgramDto){
         StudyProgramDto studyProgram = studyProgramService.updateStudyProgram(id, studyProgramDto);
         return new ResponseEntity<>(studyProgram, HttpStatus.OK);
     }
-    @Operation
+
+    @Operation(summary = "Create study program")
     @ApiResponses({
-            @ApiResponse(responseCode = "201", description = "Created the study program", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "201", content = @Content(schema = @Schema(implementation = StudyProgramDto.class),mediaType = "application/json")),
             @ApiResponse(responseCode = "400", description = "Invalid input"),
     })
     @PostMapping({"/"})

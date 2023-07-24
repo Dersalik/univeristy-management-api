@@ -6,14 +6,19 @@ import com.univeristymanagement.api.model.AcademicDepartment;
 import com.univeristymanagement.api.model.Dto.AcademicDto;
 import com.univeristymanagement.api.model.Dto.AcademicRegistrationDTO;
 import com.univeristymanagement.api.model.Dto.AcademicUpdateDto;
+import com.univeristymanagement.api.model.Dto.StudyProgramDto;
+import com.univeristymanagement.api.model.StudyProgram;
 import com.univeristymanagement.api.repository.AcademicDepartmentRepository;
 import com.univeristymanagement.api.repository.AcademicRepository;
+import com.univeristymanagement.api.repository.StudyProgramRepository;
 import com.univeristymanagement.api.service.AcademicService;
 import com.univeristymanagement.api.service.mappers.AcademicMapper;
+import com.univeristymanagement.api.service.mappers.StudyProgramMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AcademicServiceImpl implements AcademicService {
@@ -21,10 +26,14 @@ public class AcademicServiceImpl implements AcademicService {
     private AcademicRepository academicRepository;
     private AcademicDepartmentRepository academicDepartmentRepository;
 
-    @Autowired
-    public AcademicServiceImpl(AcademicRepository academicRepository, AcademicDepartmentRepository academicDepartmentRepository)
-    {
+    private StudyProgramRepository studyProgramRepository;
 
+    @Autowired
+    public AcademicServiceImpl(AcademicRepository academicRepository
+            , AcademicDepartmentRepository academicDepartmentRepository
+            , StudyProgramRepository studyProgramRepository)
+    {
+        this.studyProgramRepository=studyProgramRepository;
         this.academicRepository=academicRepository;
         this.academicDepartmentRepository=academicDepartmentRepository;
     }
@@ -106,6 +115,42 @@ public class AcademicServiceImpl implements AcademicService {
         academicRepository.save(academic);
         return AcademicMapper.academicToDto(academic);
     }
+
+    /**
+     * Adds a study program to an academic
+     * @param studyProgramId
+     * @param academicId
+     * @return void
+     */
+    @Override
+    public void addStudyProgramToAcademic(Long studyProgramId, Long academicId) {
+        checkIfStudyProgramStudyExistsById(studyProgramId);
+        checkIfAcademicExistsById(academicId);
+
+        StudyProgram studyProgram = studyProgramRepository.findById(studyProgramId).get();
+        Academic academic = academicRepository.findById(academicId).get();
+
+        studyProgram.setAcademic(academic);
+
+
+        studyProgramRepository.save(studyProgram);
+    }
+
+
+    /**
+     * Gets all study programs by academic id
+     * @param id
+     * @return List<StudyProgramDto>
+     */
+    @Override
+    public List<StudyProgramDto> getAllStudyProgramsByAcademicId(Long id) {
+        checkIfAcademicExistsById(id);
+        return studyProgramRepository.findAllByAcademicId(id).get().stream().map(studyProgram -> {
+            StudyProgramDto studyProgramDto = StudyProgramMapper.StudyProgramToDto(studyProgram);
+            return studyProgramDto;
+        }).collect(Collectors.toList());
+    }
+
     /**
      * Checks if a department exists by id
      * @param id
@@ -116,11 +161,21 @@ public class AcademicServiceImpl implements AcademicService {
     }
     /**
      * Checks if an academic exists by id
-     * @param Id
+     * @param id
      */
-    private void checkIfAcademicExistsById(Long Id){
-        academicRepository.findById(Id)
-                .orElseThrow(() -> new ResourceNotFoundException("Academic", "id", Id));
+    private void checkIfAcademicExistsById(Long id){
+        academicRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Academic", "id", id));
+    }
+
+    /**
+     * check if Study program exists by id
+     * @param id
+     * @return void
+     */
+    private void checkIfStudyProgramStudyExistsById(long id){
+        studyProgramRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("StudyProgram", "id", id));
     }
 
 }

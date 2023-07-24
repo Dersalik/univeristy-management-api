@@ -3,18 +3,18 @@ package com.univeristymanagement.api.service.impl;
 import com.univeristymanagement.api.exceptions.ResourceNotFoundException;
 import com.univeristymanagement.api.model.Academic;
 import com.univeristymanagement.api.model.AcademicDepartment;
-import com.univeristymanagement.api.model.Dto.AcademicDepartmentCreateDto;
-import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
-import com.univeristymanagement.api.model.Dto.AcademicDepartmentUpdateDto;
-import com.univeristymanagement.api.model.Dto.AcademicDto;
+import com.univeristymanagement.api.model.Dto.*;
 import com.univeristymanagement.api.model.Faculty;
+import com.univeristymanagement.api.model.StudyProgram;
 import com.univeristymanagement.api.repository.AcademicDepartmentRepository;
 import com.univeristymanagement.api.repository.AcademicRepository;
 import com.univeristymanagement.api.repository.FacultyRepository;
+import com.univeristymanagement.api.repository.StudyProgramRepository;
 import com.univeristymanagement.api.service.AcademicDepartmentService;
 import com.univeristymanagement.api.service.mappers.AcademicDepartmentMapper;
 import com.univeristymanagement.api.service.mappers.AcademicMapper;
 import com.univeristymanagement.api.service.mappers.FacultyMapper;
+import com.univeristymanagement.api.service.mappers.StudyProgramMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,13 +32,17 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
     private FacultyRepository facultyRepository;
 
     private AcademicRepository academicRepository;
+
+    private StudyProgramRepository studyProgramRepository;
     @Autowired
     public AcademicDepartmentServiceImp(AcademicDepartmentRepository academicDepartmentRepository
             , FacultyRepository facultyRepository
-            , AcademicRepository academicRepository) {
+            , AcademicRepository academicRepository
+            , StudyProgramRepository studyProgramRepository){
         this.academicDepartmentRepository = academicDepartmentRepository;
         this.facultyRepository = facultyRepository;
         this.academicRepository = academicRepository;
+        this.studyProgramRepository = studyProgramRepository;
     }
 
     /**
@@ -96,14 +100,13 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
     /**
      * Deletes an academic department by id
      * @param id
-     * @return boolean
+     * @return void
      */
     @Override
-    public boolean deleteAcademicDepartmentById(Long id) {
+    public void deleteAcademicDepartmentById(Long id) {
         checkIfDepartmentExistsById(id);
 
         academicDepartmentRepository.deleteById(id);
-        return true;
     }
 
     /**
@@ -163,7 +166,6 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
         checkIfDepartmentExistsById(id);
 
         AcademicDepartment academicDepartment = academicDepartmentRepository.findAcademicDepartmentById(id).get();
-
         List<Academic> academics = academicDepartment.getAcademics();
 
         List<AcademicDto> academicDtos = academics.stream().map(academic -> {
@@ -173,6 +175,44 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
         }).collect(Collectors.toList());
 
         return academicDtos;
+    }
+
+    /**
+     *  Adds a study program to an academic department
+     * @param studyProgramId
+     * @param academicDepartmentId
+     */
+    @Override
+    public void addStudyProgramToAcademicDepartment(Long studyProgramId, Long academicDepartmentId) {
+        checkIfDepartmentExistsById(academicDepartmentId);
+        checkIfStudyProgramExistsById(studyProgramId);
+
+
+        AcademicDepartment academicDepartment = academicDepartmentRepository.findById(academicDepartmentId).get();
+        StudyProgram studyProgram = studyProgramRepository.findById(studyProgramId).get();
+
+        studyProgram.setAcademicDepartment(academicDepartment);
+
+        studyProgramRepository.save(studyProgram);
+
+    }
+
+    /**
+     * Gets all study programs by academic department id
+     * @param id
+     * @return List<StudyProgramDto>
+     */
+    @Override
+    public List<StudyProgramDto> getAllStudyProgramsByAcademicDepartmentId(Long id){
+        checkIfDepartmentExistsById(id);
+
+        List<StudyProgram> studyPrograms=studyProgramRepository.findAllByAcademicDepartmentId(id).get();
+
+        List<StudyProgramDto> studyProgramDtos=studyPrograms.stream().map(studyProgram -> {
+            return StudyProgramMapper.StudyProgramToDto(studyProgram);
+        }).collect(Collectors.toList());
+
+        return studyProgramDtos;
     }
 
 
@@ -202,4 +242,14 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
                 .orElseThrow(() -> new ResourceNotFoundException("Academic", "id", id));
         }
 
+
+    /**
+     * Checks if a study program exists by id
+     * @param id
+     * @return void
+     */
+    private void checkIfStudyProgramExistsById(Long id) {
+        studyProgramRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("StudyProgram", "id", id));
+    }
 }

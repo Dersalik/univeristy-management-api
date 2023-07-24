@@ -1,11 +1,13 @@
 package com.univeristymanagement.api.controller;
 
+import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
 import com.univeristymanagement.api.model.Dto.AcademicDto;
 import com.univeristymanagement.api.model.Dto.AcademicRegistrationDTO;
 import com.univeristymanagement.api.service.AcademicService;
 import com.univeristymanagement.api.service.impl.AcademicServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,7 +24,7 @@ import java.util.List;
 @RequestMapping("/api/v1/auth")
 @Tag(name = "User", description = "User API")
 @ApiResponses({
-        @ApiResponse(responseCode = "500", content = { @Content( mediaType = "application/json") }),
+        @ApiResponse(responseCode = "500", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") }),
 })
 public class UserController {
 
@@ -52,7 +54,7 @@ private AcademicService academicService;
     @Operation(summary = "Create new academic")
     @ApiResponses(
             value = {
-                    @ApiResponse(responseCode = "201", description = "Academic created", content = @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDto.class))),
+                    @ApiResponse(responseCode = "201", description = "Academic created", content = @Content(schema = @Schema(implementation = AcademicDto.class))),
                     @ApiResponse(responseCode = "400", description = "Invalid input"),
                     @ApiResponse(responseCode = "409", description = "Academic already exists") }
     )

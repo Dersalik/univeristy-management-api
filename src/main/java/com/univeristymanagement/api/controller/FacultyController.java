@@ -1,13 +1,12 @@
 package com.univeristymanagement.api.controller;
 
+import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
 import com.univeristymanagement.api.model.AcademicDepartment;
-import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
-import com.univeristymanagement.api.model.Dto.FacultyCreateDto;
-import com.univeristymanagement.api.model.Dto.FacultyDto;
-import com.univeristymanagement.api.model.Dto.FacultyUpdateDto;
+import com.univeristymanagement.api.model.Dto.*;
 import com.univeristymanagement.api.service.FacultyService;
 import com.univeristymanagement.api.service.impl.FacultyServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -25,7 +24,7 @@ import java.util.List;
 
 @Tag(name = "Faculty", description = "Faculty API")
 @ApiResponses({
-        @ApiResponse(responseCode = "500", content = { @Content( mediaType = "application/json") }),
+        @ApiResponse(responseCode = "500", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") }),
 })
 @RestController
 @RequestMapping("/api/v1/faculties")
@@ -60,7 +59,7 @@ public class FacultyController {
 
     @Operation(summary = "Get all faculties")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = FacultyDto.class,type = "array"), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "200",  content = @Content(array = @ArraySchema(schema = @Schema(implementation = FacultyDto.class)),mediaType = "application/json")),
     })
     @GetMapping
     public ResponseEntity<List<FacultyDto>> getAllFaculties() {
@@ -89,7 +88,7 @@ public class FacultyController {
 
     @Operation(summary = "Get department of a faculty by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = AcademicDepartmentDto.class, type = "array"), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AcademicDepartmentDto.class)),mediaType = "application/json") ),
             @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
     })
     @GetMapping("/{id}/academic-departments")
@@ -138,10 +137,10 @@ public class FacultyController {
 
     @Operation(summary = "Assign academic department to faculty")
     @ApiResponses({
-            @ApiResponse(responseCode = "204", content = { @Content(schema = @Schema(implementation = FacultyDto.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "204"),
             @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
     })
-    @PostMapping("/{facultyId}/assign-department/{departmentId}")
+    @PostMapping("/{facultyId}/add-department/{departmentId}")
     public ResponseEntity assignDepartmentToFaculty(
             @PathVariable Long facultyId, @PathVariable Long departmentId) {
         logger.info("Assign academic department to faculty");

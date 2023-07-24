@@ -42,11 +42,11 @@ public class StudyProgramServiceImpl implements StudyProgramService {
      */
     @Override
     public StudyProgramDto updateStudyProgram(Long id, StudyProgramUpdateDto studyProgramUpdateDto) {
-        Academic academic= academicRepository.findById(studyProgramUpdateDto.getAcademicId())
-                .orElseThrow(() -> new ResourceNotFoundException("Academic", "id", studyProgramUpdateDto.getAcademicId()));
-
-        AcademicDepartment academicDepartment = academicDepartmentRepository.findById(studyProgramUpdateDto.getDepartmentId())
-                .orElseThrow(() -> new ResourceNotFoundException("AcademicDepartment", "id", studyProgramUpdateDto.getDepartmentId()));
+//        Academic academic= academicRepository.findById(studyProgramUpdateDto.getAcademicId())
+//                .orElseThrow(() -> new ResourceNotFoundException("Academic", "id", studyProgramUpdateDto.getAcademicId()));
+//
+//        AcademicDepartment academicDepartment = academicDepartmentRepository.findById(studyProgramUpdateDto.getDepartmentId())
+//                .orElseThrow(() -> new ResourceNotFoundException("AcademicDepartment", "id", studyProgramUpdateDto.getDepartmentId()));
 
 
         StudyProgram studyProgram = studyProgramRepository.findById(id)
@@ -55,8 +55,8 @@ public class StudyProgramServiceImpl implements StudyProgramService {
         studyProgram.setName(studyProgramUpdateDto.getName());
         studyProgram.setDescription(studyProgramUpdateDto.getDescription());
         studyProgram.setCapacity(studyProgramUpdateDto.getCapacity());
-        studyProgram.setAcademic(academic);
-        studyProgram.setAcademicDepartment(academicDepartment);
+//        studyProgram.setAcademic(academic);
+//        studyProgram.setAcademicDepartment(academicDepartment);
 
         studyProgramRepository.save(studyProgram);
 

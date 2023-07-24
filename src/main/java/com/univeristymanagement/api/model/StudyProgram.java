@@ -32,11 +32,11 @@ public class StudyProgram {
     @Max(value = 100, message = "Capacity must be less than 100")
     private int capacity;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "academic_department_id")
     private AcademicDepartment academicDepartment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "academic_id")
     private Academic academic;
 

@@ -12,6 +12,11 @@ import java.util.Optional;
 @Repository
 public interface AcademicDepartmentRepository extends JpaRepository<AcademicDepartment, Long> {
 
+    /**
+     * Find academic department by Id and fetch academics along with it
+     * @param id
+     * @return AcademicDepartment
+     */
     @EntityGraph(attributePaths = {"academics"})
     Optional<AcademicDepartment> findAcademicDepartmentById(Long id);
 
