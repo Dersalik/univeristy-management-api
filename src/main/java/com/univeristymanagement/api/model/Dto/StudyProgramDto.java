@@ -16,6 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class StudyProgramDto {
 
+
     private Long id;
     private String name;
     private String description;

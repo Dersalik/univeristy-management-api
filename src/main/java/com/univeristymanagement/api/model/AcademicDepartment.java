@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,7 @@ public class AcademicDepartment {
     private Long id;
 
     @NotNull(message = "Name is required")
-//    @Max(value = 70, message = "Name should not be greater than 70 characters")
+    @Size(min = 2, max = 70, message = "Name should be between 2 and 70 characters")
     private String name;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

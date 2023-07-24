@@ -3,6 +3,7 @@ package com.univeristymanagement.api.controller;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentCreateDto;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentDto;
 import com.univeristymanagement.api.model.Dto.AcademicDepartmentUpdateDto;
+import com.univeristymanagement.api.model.Dto.AcademicDto;
 import com.univeristymanagement.api.service.AcademicDepartmentService;
 import com.univeristymanagement.api.service.impl.AcademicDepartmentServiceImp;
 import io.swagger.v3.oas.annotations.Operation;
@@ -98,5 +99,32 @@ public class AcademicDepartmentController {
         return ResponseEntity.ok().body(academicDepartmentService.updateAcademicDepartmentById(id, academicDepartmentDto));
     }
 
+
+
+    @PostMapping("/{id}/add-academic/{academicId}")
+    @Operation(summary = "Add academic to academic department")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", content = { @Content( mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+    })
+    public ResponseEntity addAcademicToAcademicDepartment(@PathVariable Long id, @PathVariable Long academicId) {
+        logger.info("Add academic to academic department");
+        academicDepartmentService.addAcademicToAcademicDepartment(id, academicId);
+
+        return ResponseEntity.noContent().build();
+    }
+
+
+    @GetMapping("/{id}/academics")
+    @Operation(summary = "Get all academics by academic department id")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = AcademicDto.class,type = "array"), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+    })
+    public ResponseEntity<List<AcademicDto>> getAllAcademicsByAcademicDepartmentId(@PathVariable Long id) {
+        logger.info("Get all academics by academic department id");
+
+        return ResponseEntity.ok().body(academicDepartmentService.getAllAcademicsByAcademicDepartmentId(id));
+    }
 
 }

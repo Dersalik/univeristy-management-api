@@ -122,7 +122,8 @@ public class FacultyController {
     @Operation(summary = "Update faculty by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = FacultyDto.class), mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "400", content = { @Content(mediaType = "application/json") })
     })
     @PutMapping("/{id}")
     public ResponseEntity<FacultyDto> updateFacultyById(@PathVariable Long id,@Valid @RequestBody FacultyUpdateDto facultyDto) {

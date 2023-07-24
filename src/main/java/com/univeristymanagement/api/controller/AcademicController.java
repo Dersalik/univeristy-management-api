@@ -22,7 +22,6 @@ import java.util.List;
                 @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Internal server error")
         }
 )
-
 public class AcademicController {
 
     private AcademicService academicService;
