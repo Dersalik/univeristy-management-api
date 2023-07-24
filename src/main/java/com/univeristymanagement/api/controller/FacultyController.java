@@ -73,7 +73,7 @@ public class FacultyController {
     @Operation(summary = "Get faculty by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = FacultyDto.class), mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @GetMapping("/{id}")
     public ResponseEntity<FacultyDto> getFacultyById( @PathVariable Long id) {
@@ -89,7 +89,7 @@ public class FacultyController {
     @Operation(summary = "Get department of a faculty by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AcademicDepartmentDto.class)),mediaType = "application/json") ),
-            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @GetMapping("/{id}/academic-departments")
     public ResponseEntity<List<AcademicDepartmentDto>> getAcademicDepartments( @PathVariable Long id) {
@@ -105,7 +105,7 @@ public class FacultyController {
     @Operation(summary = "Delete faculty by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = String.class), mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteFacultyById( @PathVariable Long id) {
@@ -121,7 +121,7 @@ public class FacultyController {
     @Operation(summary = "Update faculty by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = FacultyDto.class), mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") }),
             @ApiResponse(responseCode = "400", content = { @Content(mediaType = "application/json") })
     })
     @PutMapping("/{id}")
@@ -138,7 +138,7 @@ public class FacultyController {
     @Operation(summary = "Assign academic department to faculty")
     @ApiResponses({
             @ApiResponse(responseCode = "204"),
-            @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json") })
+            @ApiResponse(responseCode = "404",content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @PostMapping("/{facultyId}/add-department/{departmentId}")
     public ResponseEntity assignDepartmentToFaculty(

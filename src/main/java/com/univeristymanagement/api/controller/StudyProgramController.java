@@ -49,7 +49,8 @@ private StudyProgramService studyProgramService;
     @Operation(summary = "Get study program by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = StudyProgramDto.class),mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", description = "Study program not found", content = @Content(mediaType = "application/json"))
+            @ApiResponse(responseCode = "404", description = "Study program not found"
+                    , content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     public ResponseEntity<StudyProgramDto> getStudyProgramById(@PathVariable Long id){
         StudyProgramDto studyProgram = studyProgramService.getStudyProgramById(id);
@@ -57,8 +58,13 @@ private StudyProgramService studyProgramService;
     }
     @Operation(summary = "Delete study program by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = StudyProgramDto.class),mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", description = "Study program not found", content = @Content(mediaType = "application/json"))
+            @ApiResponse(responseCode = "200"
+                    , content = @Content(schema = @Schema(implementation = StudyProgramDto.class)
+                    ,mediaType = "application/json")),
+            @ApiResponse(responseCode = "404"
+                    , description = "Study program not found"
+                    ,content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class)
+                    ,mediaType = "application/json") })
     })
     @DeleteMapping({"/{id}"})
     public ResponseEntity<StudyProgramDto> deleteStudyProgramById(@PathVariable Long id){
@@ -68,8 +74,11 @@ private StudyProgramService studyProgramService;
 
     @Operation(summary = "Update study program by id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = StudyProgramDto.class),mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", description = "Study program not found", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = StudyProgramDto.class)
+                    ,mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "Study program not found"
+                    ,content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class)
+                    ,mediaType = "application/json") }),
             @ApiResponse(responseCode = "400", description = "Invalid input")
     })
     @PutMapping ({"/{id}"})

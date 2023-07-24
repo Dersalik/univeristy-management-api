@@ -24,7 +24,7 @@ import java.util.List;
 @RequestMapping("/api/v1/academics")
 @Tag(name = "Academic", description = "Academic API")
 @ApiResponses({
-        @ApiResponse(responseCode = "500", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") }),
+        @ApiResponse(responseCode = "500", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
 })
 public class AcademicController {
 
@@ -51,7 +51,7 @@ public class AcademicController {
     @Operation(summary = "Get academic by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Found the academic", content = @Content(schema = @Schema(implementation = AcademicDto.class),mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", description = "Academic not found", content = @Content(mediaType = "application/json"))
+            @ApiResponse(responseCode = "404", description = "Academic not found",content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     public ResponseEntity<AcademicDto> getAcademicById(@PathVariable Long id){
         AcademicDto academic = academicService.getAcademicById(id);
@@ -63,7 +63,7 @@ public class AcademicController {
     @Operation(summary = "Delete academic by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Deleted the academic", content = @Content(schema = @Schema(implementation = AcademicDto.class),mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", description = "Academic not found", content = @Content(mediaType = "application/json"))
+            @ApiResponse(responseCode = "404", description = "Academic not found",content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     public ResponseEntity<AcademicDto> deleteAcademicById(@PathVariable Long id){
         AcademicDto academic = academicService.deleteAcademicById(id);
@@ -74,7 +74,7 @@ public class AcademicController {
     @Operation(summary = "Update academic by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Updated the academic", content = @Content(schema =@Schema(implementation = AcademicDto.class) ,mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", description = "Academic not found", content = @Content(mediaType = "application/json"))
+            @ApiResponse(responseCode = "404", description = "Academic not found", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     public ResponseEntity<AcademicDto> updateAcademicById(@PathVariable Long id,@Valid @RequestBody AcademicUpdateDto academicDto){
         AcademicDto academic = academicService.updateAcademic(id, academicDto);
@@ -86,7 +86,7 @@ public class AcademicController {
     @ApiResponses(
             value = {
                     @ApiResponse(responseCode = "204"),
-                    @ApiResponse(responseCode = "404", description = "Academic or study program not found", content = @Content(mediaType = "application/json"))
+                    @ApiResponse(responseCode = "404", description = "Academic or study program not found", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
             }
     )
     public ResponseEntity addStudyProgramToAcademic(@PathVariable Long id, @PathVariable Long studyProgramId){
@@ -100,7 +100,7 @@ public class AcademicController {
     @ApiResponses(
             value = {
                     @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = StudyProgramDto.class)),mediaType = "application/json")),
-                    @ApiResponse(responseCode = "404", description = "Academic not found", content = @Content(mediaType = "application/json"))
+                    @ApiResponse(responseCode = "404", description = "Academic not found", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
             }
     )
     public ResponseEntity<List<StudyProgramDto>> getStudyProgramsOfAcademic(@PathVariable Long id){

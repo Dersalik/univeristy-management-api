@@ -17,8 +17,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
+
+import static com.fasterxml.jackson.databind.type.LogicalType.Map;
 
 @RestController
 @RequestMapping("/api/v1/academic-departments")
@@ -53,7 +58,7 @@ public class AcademicDepartmentController {
     @Operation(summary = "Get academic department by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @GetMapping("/{id}")
     public ResponseEntity<AcademicDepartmentDto> getAcademicDepartmentById(@PathVariable Long id) {
@@ -65,6 +70,7 @@ public class AcademicDepartmentController {
     @Operation(summary = "Create new academic department")
     @ApiResponses({
             @ApiResponse(responseCode = "201", content = { @Content(schema = @Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "400", description = "Invalid input",content = { @Content( mediaType = "application/json") }),
     })
     @PostMapping
     public ResponseEntity<AcademicDepartmentDto> createAcademicDepartment(@Valid @RequestBody AcademicDepartmentCreateDto academicDepartmentDto) {
@@ -78,7 +84,7 @@ public class AcademicDepartmentController {
     @Operation(summary = "Delete academic department by id")
     @ApiResponses({
             @ApiResponse(responseCode = "204"),
-            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @DeleteMapping("/{id}")
     public ResponseEntity deleteAcademicDepartmentById(@PathVariable Long id) {
@@ -90,7 +96,7 @@ public class AcademicDepartmentController {
     @Operation(summary = "Update academic department by id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = AcademicDepartmentDto.class), mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @PutMapping("/{id}")
     public ResponseEntity<AcademicDepartmentDto> updateAcademicDepartmentById(@PathVariable Long id, @Valid @RequestBody AcademicDepartmentUpdateDto academicDepartmentDto) {
@@ -105,7 +111,7 @@ public class AcademicDepartmentController {
     @Operation(summary = "Add academic to academic department")
     @ApiResponses({
             @ApiResponse(responseCode = "204"),
-            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+            @ApiResponse(responseCode = "404",content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     public ResponseEntity addAcademicToAcademicDepartment(@PathVariable Long id, @PathVariable Long academicId) {
         logger.info("Add academic to academic department");
@@ -119,7 +125,7 @@ public class AcademicDepartmentController {
     @Operation(summary = "Get all academics by academic department id")
     @ApiResponses({
             @ApiResponse(responseCode = "200",  content = @Content(array = @ArraySchema(schema = @Schema(implementation = AcademicDto.class)),mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     public ResponseEntity<List<AcademicDto>> getAllAcademicsByAcademicDepartmentId(@PathVariable Long id) {
         logger.info("Get all academics by academic department id");
@@ -131,7 +137,7 @@ public class AcademicDepartmentController {
     @Operation(summary = "Add study program to academic department")
     @ApiResponses({
             @ApiResponse(responseCode = "204"),
-            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     public ResponseEntity addStudyProgramToAcademicDepartment(@PathVariable Long id, @PathVariable Long studyProgramId) {
         logger.info("Add study program to academic department");
@@ -144,7 +150,7 @@ public class AcademicDepartmentController {
     @Operation(summary = "Get all study programs by academic department id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = StudyProgramDto.class)),mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", content = { @Content( mediaType = "application/json") })
+            @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     public ResponseEntity<List<StudyProgramDto>> getAllStudyProgramsByAcademicDepartmentId(@PathVariable Long id) {
         logger.info("Get all study programs by academic department id");
