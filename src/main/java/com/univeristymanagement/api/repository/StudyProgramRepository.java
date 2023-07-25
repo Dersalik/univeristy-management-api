@@ -13,4 +13,6 @@ public interface StudyProgramRepository extends JpaRepository<StudyProgram, Long
     Optional<List<StudyProgram>> findAllByAcademicDepartmentId(Long id);
 
     Optional<List<StudyProgram>> findAllByAcademicId(Long id);
+
+
 }

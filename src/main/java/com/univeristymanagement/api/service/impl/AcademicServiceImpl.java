@@ -21,6 +21,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+/**
+ * This class is responsible for implementing the AcademicService interface
+ */
 public class AcademicServiceImpl implements AcademicService {
 
     private AcademicRepository academicRepository;

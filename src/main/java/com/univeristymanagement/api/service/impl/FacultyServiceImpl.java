@@ -21,6 +21,9 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+/**
+ * This class is responsible for implementing the FacultyService interface
+ */
 public class FacultyServiceImpl implements FacultyService {
 
     private FacultyRepository facultyRepository;

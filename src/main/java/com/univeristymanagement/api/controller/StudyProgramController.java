@@ -18,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/study-programs")
@@ -96,5 +97,19 @@ private StudyProgramService studyProgramService;
     public ResponseEntity<StudyProgramDto> createStudyProgram(@Valid @RequestBody StudyProgramCreateDto studyProgramDto){
         StudyProgramDto studyProgram = studyProgramService.createStudyProgram(studyProgramDto);
         return new ResponseEntity<>(studyProgram, HttpStatus.CREATED);
+    }
+
+
+
+    @GetMapping({"/{id}/academic-degrees"})
+    @Operation(summary = "Get all academic degrees by study program id")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200",content = @Content(array = @ArraySchema(schema = @Schema(implementation = AcademicDegreeDto.class)),mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "Study program not found"
+                    ,content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
+    })
+    public ResponseEntity<Set<AcademicDegreeDto>> getAcademicDegreesByStudyProgramId(@PathVariable Long id){
+        Set<AcademicDegreeDto> academicDegrees = studyProgramService.getAcademicDegreesByStudyProgramId(id);
+        return new ResponseEntity<>(academicDegrees, HttpStatus.OK);
     }
 }

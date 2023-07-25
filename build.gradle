@@ -28,6 +28,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'pl.oakfusion:chromedriver:2.9'
+	implementation 'org.openqa.selenium:selenium-rc:1.0-20081010.060147'
+	implementation 'org.openqa.selenium:selenium-rc:1.0-20081010.060147'
+	implementation 'io.swagger.core.v3:swagger-models:2.2.8'
 
 
 	compileOnly 'org.projectlombok:lombok'

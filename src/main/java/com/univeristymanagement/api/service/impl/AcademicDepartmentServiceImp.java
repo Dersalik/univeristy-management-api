@@ -25,6 +25,9 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+/**
+ * This class is responsible for implementing the AcademicDepartmentService interface
+ */
 public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
 
     private AcademicDepartmentRepository academicDepartmentRepository;

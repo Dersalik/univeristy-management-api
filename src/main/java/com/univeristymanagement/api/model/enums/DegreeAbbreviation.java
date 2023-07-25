@@ -1,6 +1,8 @@
 package com.univeristymanagement.api.model.enums;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.SchemaProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -14,6 +16,7 @@ public enum DegreeAbbreviation {
     PhD("PhD");
 
     private final String abbreviation;
+
 
 
 }

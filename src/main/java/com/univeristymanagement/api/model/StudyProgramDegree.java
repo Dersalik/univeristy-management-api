@@ -18,11 +18,11 @@ public class StudyProgramDegree {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "academic_degree_id")
     private AcademicDegree academicDegree;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "study_program_id")
     private StudyProgram studyProgram;
 }

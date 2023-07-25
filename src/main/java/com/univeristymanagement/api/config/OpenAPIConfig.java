@@ -38,9 +38,13 @@ public class OpenAPIConfig implements ApplicationRunner{
         if (openBrowser) {
             // Open Swagger UI in the default browser (Only if openBrowser is set to true)
             URI swaggerUri = new URI("http://localhost:8080/swagger-ui/index.html#/");
+
+
             Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + swaggerUri);
         }
     }
+
+
     @Bean
     public OpenAPI myOpenAPI() {
         Server devServer = new Server();

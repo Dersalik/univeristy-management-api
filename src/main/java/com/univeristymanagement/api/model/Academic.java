@@ -14,6 +14,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ * Academic class
+ */
 public class Academic extends Person {
 
     @ManyToOne
