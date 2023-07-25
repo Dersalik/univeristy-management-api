@@ -20,4 +20,8 @@ public interface StudyProgramService {
     StudyProgramDto createStudyProgram(StudyProgramCreateDto studyProgramDto);
 
     Set<AcademicDegreeDto> getAcademicDegreesByStudyProgramId(Long id);
+
+    void addAcademicDegreeToStudyProgram(Long academicDegreeId, Long studyProgramId);
+
+    void deleteAcademicDegreeFromStudyProgram(Long academicDegreeId, Long id);
 }

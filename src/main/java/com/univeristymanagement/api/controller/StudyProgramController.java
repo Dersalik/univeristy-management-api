@@ -112,4 +112,28 @@ private StudyProgramService studyProgramService;
         Set<AcademicDegreeDto> academicDegrees = studyProgramService.getAcademicDegreesByStudyProgramId(id);
         return new ResponseEntity<>(academicDegrees, HttpStatus.OK);
     }
+
+    @PostMapping({"/{id}/academic-degrees/{academicDegreeId}"})
+    @Operation(summary = "Add academic degree to study program")
+    @ApiResponses({
+            @ApiResponse(responseCode="204", description = "Academic degree added to study program"),
+            @ApiResponse(responseCode = "404", description = "Study program not found"
+                    ,content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
+    })
+    public ResponseEntity<StudyProgramDto> addAcademicDegreeToStudyProgram(@PathVariable Long id, @PathVariable Long academicDegreeId){
+         studyProgramService.addAcademicDegreeToStudyProgram(academicDegreeId, id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping({"/{id}/academic-degrees/{academicDegreeId}"})
+    @Operation(summary = "Delete academic degree from study program")
+    @ApiResponses({
+            @ApiResponse(responseCode="204", description = "Academic degree deleted from study program"),
+            @ApiResponse(responseCode = "404", description = "Study program not found"
+                    ,content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
+    })
+    public ResponseEntity<StudyProgramDto> deleteAcademicDegreeFromStudyProgram(@PathVariable Long id, @PathVariable Long academicDegreeId){
+         studyProgramService.deleteAcademicDegreeFromStudyProgram(academicDegreeId, id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

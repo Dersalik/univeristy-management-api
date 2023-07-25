@@ -1,18 +1,12 @@
 package com.univeristymanagement.api.service.impl;
 
 import com.univeristymanagement.api.exceptions.ResourceNotFoundException;
-import com.univeristymanagement.api.model.Academic;
-import com.univeristymanagement.api.model.AcademicDegree;
-import com.univeristymanagement.api.model.AcademicDepartment;
+import com.univeristymanagement.api.model.*;
 import com.univeristymanagement.api.model.Dto.AcademicDegreeDto;
 import com.univeristymanagement.api.model.Dto.StudyProgramCreateDto;
 import com.univeristymanagement.api.model.Dto.StudyProgramDto;
 import com.univeristymanagement.api.model.Dto.StudyProgramUpdateDto;
-import com.univeristymanagement.api.model.StudyProgram;
-import com.univeristymanagement.api.repository.AcademicDepartmentRepository;
-import com.univeristymanagement.api.repository.AcademicRepository;
-import com.univeristymanagement.api.repository.StudyProgramDegreeRepository;
-import com.univeristymanagement.api.repository.StudyProgramRepository;
+import com.univeristymanagement.api.repository.*;
 import com.univeristymanagement.api.service.StudyProgramService;
 import com.univeristymanagement.api.service.mappers.AcademicDegreeMapper;
 import com.univeristymanagement.api.service.mappers.AcademicDepartmentMapper;
@@ -33,17 +27,20 @@ public class StudyProgramServiceImpl implements StudyProgramService {
     private final StudyProgramRepository studyProgramRepository;
     private final AcademicRepository academicRepository;
     private final AcademicDepartmentRepository academicDepartmentRepository;
+    private final AcademicDegreeRepository academicDegreeRepository;
 
     private final StudyProgramDegreeRepository studyProgramDegreeRepository;
     @Autowired
     public StudyProgramServiceImpl(StudyProgramRepository studyProgramRepository
             , AcademicRepository academicRepository
             , AcademicDepartmentRepository academicDepartmentRepository
-            , StudyProgramDegreeRepository studyProgramDegreeRepository) {
+            , StudyProgramDegreeRepository studyProgramDegreeRepository
+            , AcademicDegreeRepository academicDegreeRepository) {
         this.studyProgramRepository = studyProgramRepository;
         this.academicRepository = academicRepository;
         this.academicDepartmentRepository = academicDepartmentRepository;
         this.studyProgramDegreeRepository = studyProgramDegreeRepository;
+        this.academicDegreeRepository = academicDegreeRepository;
     }
 
     /**
@@ -115,6 +112,31 @@ public class StudyProgramServiceImpl implements StudyProgramService {
         return StudyProgramMapper.StudyProgramToDto(studyProgram);
     }
 
+    @Override
+    public void addAcademicDegreeToStudyProgram(Long academicDegreeId, Long studyProgramId) {
+        academicDegreeExists(academicDegreeId);
+        studyProgramExists(studyProgramId);
+
+        StudyProgramDegree academicStudyProgramDegree = new StudyProgramDegree();
+        StudyProgram studyProgram = studyProgramRepository.findById(studyProgramId).get();
+        AcademicDegree academicDegree = academicDegreeRepository.findById(academicDegreeId).get();
+
+        academicStudyProgramDegree.setAcademicDegree(academicDegree);
+        academicStudyProgramDegree.setStudyProgram(studyProgram);
+
+        studyProgramDegreeRepository.save(academicStudyProgramDegree);
+    }
+
+    @Override
+    public void deleteAcademicDegreeFromStudyProgram(Long academicDegreeId, Long id) {
+        academicDegreeExists(academicDegreeId);
+        studyProgramExists(id);
+
+        StudyProgramDegree studyProgramDegree = studyProgramDegreeRepository.findByAcademicDegreeIdAndStudyProgramId(academicDegreeId, id)
+                .orElseThrow(() -> new ResourceNotFoundException("StudyProgramDegree", "academicDegreeId", academicDegreeId));
+
+        studyProgramDegreeRepository.delete(studyProgramDegree);
+    }
 
     /**
      * this method is responsible for getting all academic degrees by study program id
@@ -162,4 +184,15 @@ public class StudyProgramServiceImpl implements StudyProgramService {
     }
 
 
+    private void academicDegreeExists(Long id){
+        if(!academicDegreeRepository.existsById(id)){
+            throw new ResourceNotFoundException("Academic Degree","id", id);
+        }
+    }
+
+    private void studyProgramExists(Long id){
+        if(!studyProgramRepository.existsById(id)){
+            throw new ResourceNotFoundException("Study Program","id", id);
+        }
+    }
 }
