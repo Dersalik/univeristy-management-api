@@ -1,7 +1,6 @@
 package com.univeristymanagement.api.controller;
 
 import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
-import com.univeristymanagement.api.model.AcademicDepartment;
 import com.univeristymanagement.api.model.Dto.*;
 import com.univeristymanagement.api.service.FacultyService;
 import com.univeristymanagement.api.service.impl.FacultyServiceImpl;
@@ -17,7 +16,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +28,7 @@ import java.util.List;
 @RequestMapping("/api/v1/faculties")
 public class FacultyController {
 
-    private FacultyService facultyService;
+    private final FacultyService facultyService;
     private final Logger logger ;
 
 
@@ -39,7 +37,6 @@ public class FacultyController {
 
         this.facultyService = facultyService;
         logger=LoggerFactory.getLogger(FacultyController.class);
-
         logger.info("FacultyController created");
     }
 
@@ -141,7 +138,7 @@ public class FacultyController {
             @ApiResponse(responseCode = "404",content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @PostMapping("/{facultyId}/add-department/{departmentId}")
-    public ResponseEntity assignDepartmentToFaculty(
+    public ResponseEntity<?> assignDepartmentToFaculty(
             @PathVariable Long facultyId, @PathVariable Long departmentId) {
         logger.info("Assign academic department to faculty");
         facultyService.assignAcademicDepartmentToFaculty(facultyId, departmentId);

@@ -20,14 +20,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 /**
  * This class is responsible for implementing the FacultyService interface
  */
 public class FacultyServiceImpl implements FacultyService {
 
-    private FacultyRepository facultyRepository;
-    private AcademicDepartmentRepository academicDepartmentRepository;
+    private final FacultyRepository facultyRepository;
+    private final AcademicDepartmentRepository academicDepartmentRepository;
 
     @Autowired
     public FacultyServiceImpl(FacultyRepository facultyRepository, AcademicDepartmentRepository academicDepartmentRepository){
@@ -71,7 +71,7 @@ public class FacultyServiceImpl implements FacultyService {
 
     /**
      * Gets a faculty by id
-     * @param id
+     * @param id id of the faculty to be retrieved
      * @return FacultyDto
      */
     @Override
@@ -80,7 +80,7 @@ public class FacultyServiceImpl implements FacultyService {
     }
     /**
      * Deletes a faculty by id
-     * @param id
+     * @param id id of the faculty to be deleted
      * @return boolean
      */
     @Override
@@ -110,9 +110,9 @@ public class FacultyServiceImpl implements FacultyService {
 
     /**
      * Updates a faculty
-     * @param id
-     * @param facultyDto
-     * @return
+     * @param id id of the faculty to be updated
+     * @param facultyDto faculty data to be updated
+     * @return FacultyDto
      */
     @Override
     public FacultyDto updateFaculty(Long id, FacultyUpdateDto facultyDto) {
@@ -129,8 +129,9 @@ public class FacultyServiceImpl implements FacultyService {
 
     /**
      * Assigns an academic department to a faculty
-     * @param facultyId
-     * @param academicDepartmentId
+     * @param facultyId id of the faculty to be assigned
+     * @param academicDepartmentId id of the academic department to be assigned
+     * @Return void
      */
     @Override
     public void assignAcademicDepartmentToFaculty(Long facultyId, Long academicDepartmentId) {

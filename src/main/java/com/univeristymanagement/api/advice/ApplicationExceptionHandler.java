@@ -4,6 +4,7 @@ package com.univeristymanagement.api.advice;
 import com.univeristymanagement.api.exceptions.ApiException;
 import com.univeristymanagement.api.exceptions.ResourceAlreadyAssignedException;
 import com.univeristymanagement.api.exceptions.ResourceNotFoundException;
+import com.univeristymanagement.api.exceptions.UserAlreadyRegisteredException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,6 +41,15 @@ public class ApplicationExceptionHandler {
 
         ApiResponse apiResponse = new ApiResponse(errorMessage, false);
         return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UserAlreadyRegisteredException.class)
+    public ResponseEntity<ApiResponse> userAlreadyRegisteredExceptionHandler(UserAlreadyRegisteredException ex)
+    {
+        String message = ex.getMessage();
+        ApiResponse apiResponse = new ApiResponse(message, false);
+
+        return new ResponseEntity<ApiResponse>(apiResponse,HttpStatus.CONFLICT);
     }
 
 

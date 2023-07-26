@@ -2,10 +2,7 @@ package com.univeristymanagement.api.controller;
 
 
 import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
-import com.univeristymanagement.api.model.AcademicDegree;
-import com.univeristymanagement.api.model.Dto.AcademicDegreeCreateDto;
 import com.univeristymanagement.api.model.Dto.AcademicDegreeDto;
-import com.univeristymanagement.api.model.Dto.AcademicDto;
 import com.univeristymanagement.api.service.AcademicDegreeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -14,7 +11,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,10 +27,10 @@ import java.util.logging.Logger;
 public class AcademicDegreeController {
 
 
-    private Logger logger ;
+    private final Logger logger ;
 
 
-    private AcademicDegreeService academicDegreeService;
+    private final AcademicDegreeService academicDegreeService;
 
     @Autowired
     public AcademicDegreeController(AcademicDegreeService academicDegreeService){
@@ -67,7 +63,7 @@ public class AcademicDegreeController {
 
 
 
-    //since the degree names and abbreviations are available as enums there is no purposer
+    //since the degree names and abbreviations are available as enums there is no purpose
     // to have an endpoint to create them
 //    @PostMapping
 //    @Operation(summary = "Create academic degree")

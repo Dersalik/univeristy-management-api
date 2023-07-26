@@ -21,9 +21,7 @@ import java.util.List;
 public class Student extends Person {
 
     @NotNull(message = "Birthday is required")
-//    @Past(message = "Birthday should be in the past")
-//    @Min(value = 18, message = "Age should be at least 18 years")
-//    @Max(value = 100, message = "Age should not be greater than 100 years")
+    @Past(message = "Birthday should be in the past")
     private LocalDate birthday;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)

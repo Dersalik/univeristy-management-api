@@ -16,14 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Logger;
 
-import static com.fasterxml.jackson.databind.type.LogicalType.Map;
 
 @RestController
 @RequestMapping("/api/v1/academic-departments")
@@ -35,7 +30,7 @@ public class AcademicDepartmentController {
 
     private final Logger logger ;
 
-    private AcademicDepartmentService academicDepartmentService;
+    private final AcademicDepartmentService academicDepartmentService;
 
     @Autowired
     public AcademicDepartmentController(AcademicDepartmentServiceImp academicDepartmentService){
@@ -87,7 +82,7 @@ public class AcademicDepartmentController {
             @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteAcademicDepartmentById(@PathVariable Long id) {
+    public ResponseEntity<?> deleteAcademicDepartmentById(@PathVariable Long id) {
         logger.info("Delete academic department by id");
         academicDepartmentService.deleteAcademicDepartmentById(id);
         return ResponseEntity.noContent().build();
@@ -113,7 +108,7 @@ public class AcademicDepartmentController {
             @ApiResponse(responseCode = "204"),
             @ApiResponse(responseCode = "404",content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
-    public ResponseEntity addAcademicToAcademicDepartment(@PathVariable Long id, @PathVariable Long academicId) {
+    public ResponseEntity<?> addAcademicToAcademicDepartment(@PathVariable Long id, @PathVariable Long academicId) {
         logger.info("Add academic to academic department");
         academicDepartmentService.addAcademicToAcademicDepartment(id, academicId);
 
@@ -139,7 +134,7 @@ public class AcademicDepartmentController {
             @ApiResponse(responseCode = "204"),
             @ApiResponse(responseCode = "404", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
     })
-    public ResponseEntity addStudyProgramToAcademicDepartment(@PathVariable Long id, @PathVariable Long studyProgramId) {
+    public ResponseEntity<?> addStudyProgramToAcademicDepartment(@PathVariable Long id, @PathVariable Long studyProgramId) {
         logger.info("Add study program to academic department");
         academicDepartmentService.addStudyProgramToAcademicDepartment(id, studyProgramId);
 
@@ -154,7 +149,6 @@ public class AcademicDepartmentController {
     })
     public ResponseEntity<List<StudyProgramDto>> getAllStudyProgramsByAcademicDepartmentId(@PathVariable Long id) {
         logger.info("Get all study programs by academic department id");
-
         return ResponseEntity.ok().body(academicDepartmentService.getAllStudyProgramsByAcademicDepartmentId(id));
     }
 

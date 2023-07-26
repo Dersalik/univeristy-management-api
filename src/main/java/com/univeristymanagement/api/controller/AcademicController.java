@@ -28,7 +28,7 @@ import java.util.List;
 })
 public class AcademicController {
 
-    private AcademicService academicService;
+    private final AcademicService academicService;
 
     public AcademicController(AcademicServiceImpl academicService) {
         this.academicService = academicService;
@@ -89,9 +89,9 @@ public class AcademicController {
                     @ApiResponse(responseCode = "404", description = "Academic or study program not found", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
             }
     )
-    public ResponseEntity addStudyProgramToAcademic(@PathVariable Long id, @PathVariable Long studyProgramId){
+    public ResponseEntity<?> addStudyProgramToAcademic(@PathVariable Long id, @PathVariable Long studyProgramId){
         academicService.addStudyProgramToAcademic(id, studyProgramId);
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 

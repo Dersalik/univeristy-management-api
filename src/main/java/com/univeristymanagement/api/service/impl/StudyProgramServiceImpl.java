@@ -1,11 +1,9 @@
 package com.univeristymanagement.api.service.impl;
 
+import com.univeristymanagement.api.exceptions.ResourceAlreadyAssignedException;
 import com.univeristymanagement.api.exceptions.ResourceNotFoundException;
 import com.univeristymanagement.api.model.*;
-import com.univeristymanagement.api.model.Dto.AcademicDegreeDto;
-import com.univeristymanagement.api.model.Dto.StudyProgramCreateDto;
-import com.univeristymanagement.api.model.Dto.StudyProgramDto;
-import com.univeristymanagement.api.model.Dto.StudyProgramUpdateDto;
+import com.univeristymanagement.api.model.Dto.*;
 import com.univeristymanagement.api.repository.*;
 import com.univeristymanagement.api.service.StudyProgramService;
 import com.univeristymanagement.api.service.mappers.AcademicDegreeMapper;
@@ -117,9 +115,16 @@ public class StudyProgramServiceImpl implements StudyProgramService {
         academicDegreeExists(academicDegreeId);
         studyProgramExists(studyProgramId);
 
+        studyProgramDegreeRepository.findByAcademicDegreeIdAndStudyProgramId(academicDegreeId, studyProgramId)
+                .ifPresent(studyProgramDegree -> {
+                    throw new ResourceAlreadyAssignedException("AcademicDegree", academicDegreeId, "StudyProgram", studyProgramId);
+                });
+
         StudyProgramDegree academicStudyProgramDegree = new StudyProgramDegree();
         StudyProgram studyProgram = studyProgramRepository.findById(studyProgramId).get();
         AcademicDegree academicDegree = academicDegreeRepository.findById(academicDegreeId).get();
+
+
 
         academicStudyProgramDegree.setAcademicDegree(academicDegree);
         academicStudyProgramDegree.setStudyProgram(studyProgram);
@@ -136,6 +141,31 @@ public class StudyProgramServiceImpl implements StudyProgramService {
                 .orElseThrow(() -> new ResourceNotFoundException("StudyProgramDegree", "academicDegreeId", academicDegreeId));
 
         studyProgramDegreeRepository.delete(studyProgramDegree);
+    }
+
+    @Override
+    public void addStudentToStudyProgram(long id, long studentId, StudyProgramCreateDto studentStudyProgramCreateDto) {
+
+    }
+
+    @Override
+    public Set<StudentStudyProgramDto> getEnrollmentsByStudyProgramId(Long id) {
+        return null;
+    }
+
+    @Override
+    public StudentStudyProgramDto getEnrollmentById(Long id) {
+        return null;
+    }
+
+    @Override
+    public StudentStudyProgramDto updateEnrollment(Long id, StudentStudyProgramUpdateDto studentStudyProgramUpdateDto) {
+        return null;
+    }
+
+    @Override
+    public void deleteEnrollmentById(Long studyProgramId, Long studentId) {
+
     }
 
     /**

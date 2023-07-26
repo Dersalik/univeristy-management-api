@@ -3,7 +3,10 @@ package com.univeristymanagement.api.controller;
 import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
 import com.univeristymanagement.api.model.Dto.AcademicDto;
 import com.univeristymanagement.api.model.Dto.AcademicRegistrationDTO;
+import com.univeristymanagement.api.model.Dto.StudentDto;
+import com.univeristymanagement.api.model.Dto.StudentRegistrationDto;
 import com.univeristymanagement.api.service.AcademicService;
+import com.univeristymanagement.api.service.StudentService;
 import com.univeristymanagement.api.service.impl.AcademicServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -18,7 +21,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -29,13 +31,14 @@ import java.util.List;
 public class UserController {
 
 
-private AcademicService academicService;
-
-   private Logger logger;
+private final AcademicService academicService;
+private final StudentService studentService;
+   private final Logger logger;
    @Autowired
-    public UserController(AcademicServiceImpl academicService) {
+    public UserController(AcademicService academicService, StudentService studentService) {
         logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
         this.academicService = academicService;
+        this.studentService = studentService;
     }
 
 //    @PostMapping("/admin")
@@ -44,12 +47,19 @@ private AcademicService academicService;
 //        return new ResponseEntity<>(registeredAdmin, HttpStatus.CREATED);
 //    }
 
-//    @PostMapping("/student")
-//    public ResponseEntity<StudentDto> registerStudent(@RequestBody StudentRegistrationDTO studentDTO) {
-//        User registeredStudent = userService.registerStudent(studentDTO);
-//        return new ResponseEntity<>(registeredStudent, HttpStatus.CREATED);
-//    }
-//
+    @PostMapping("/student")
+    @Operation(summary = "Create new student")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(responseCode = "201", description = "Student created", content = @Content(schema = @Schema(implementation = StudentDto.class))),
+                    @ApiResponse(responseCode = "400", description = "Invalid input"),
+                    @ApiResponse(responseCode = "409", description = "Student already exists") }
+    )
+    public ResponseEntity<StudentDto> registerStudent(@RequestBody StudentRegistrationDto studentDTO) {
+        StudentDto registeredStudent = studentService.registerStudent(studentDTO);
+        return new ResponseEntity<>(registeredStudent, HttpStatus.CREATED);
+    }
+
     @PostMapping("/academic")
     @Operation(summary = "Create new academic")
     @ApiResponses(

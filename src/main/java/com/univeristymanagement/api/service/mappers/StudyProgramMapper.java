@@ -37,19 +37,5 @@ public class StudyProgramMapper {
     }
 
 
-    public static StudyProgram StudyProgramUpdateDtoToStudyProgram(StudyProgramUpdateDto studyProgramDto
-            , Academic academic, AcademicDepartment academicDepartment
-    ){
-        StudyProgram studyProgram = new StudyProgram();
-        studyProgram.setName(studyProgramDto.getName());
-        studyProgram.setDescription(studyProgramDto.getDescription());
-        studyProgram.setCapacity(studyProgramDto.getCapacity());
-        studyProgram.setAcademic(academic);
-        studyProgram.setAcademicDepartment(academicDepartment);
-
-
-        return studyProgram;
-    }
-
 
 }

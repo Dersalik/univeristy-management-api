@@ -12,5 +12,7 @@ public interface AcademicRepository extends JpaRepository<Academic, Long> {
 
     Optional<Academic> findByEmail(String email);
 
+    boolean existsByEmail(String email);
+
    // Optional<List<Academic>> findAcademicsByAcademicDepartmentId(Long id);
 }

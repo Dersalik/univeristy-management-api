@@ -41,16 +41,5 @@ public class AcademicMapper {
         return academicDto;
     }
 
-    public static Academic academicUpdateDtoToAcademic(AcademicUpdateDto academicDto,AcademicDepartment department){
-
-        Academic academic = new Academic();
-        academic.setFirstName(academicDto.getFirstName());
-        academic.setLastName(academicDto.getLastName());
-        academic.setPreNominalTitles(academicDto.getPreNominalTitles());
-        academic.setPostNominalTitles(academicDto.getPostNominalTitles());
-        academic.setAcademicDepartment(department);
-
-        return academic;
-    }
 
 }

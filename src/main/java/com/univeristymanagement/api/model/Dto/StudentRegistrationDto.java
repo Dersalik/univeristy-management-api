@@ -1,28 +1,20 @@
-package com.univeristymanagement.api.model;
+package com.univeristymanagement.api.model.Dto;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@MappedSuperclass
-@Table(name = "person")
+import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class Person {
-
-    @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private Long id;
+public class StudentRegistrationDto {
     @NotNull(message = "First name is required")
     @Size(min = 2, max = 50, message = "First name should be between 2 and 50 characters")
     private String firstName;
@@ -39,5 +31,7 @@ public abstract class Person {
     @NotNull(message = "post nominal titles is required")
     private String postNominalTitles;
 
-
+    @NotNull(message = "Birthday is required")
+    @Past(message = "Birthday should be in the past")
+    private LocalDate birthday;
 }

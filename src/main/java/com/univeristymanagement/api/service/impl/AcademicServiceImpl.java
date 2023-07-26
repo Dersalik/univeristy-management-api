@@ -1,6 +1,7 @@
 package com.univeristymanagement.api.service.impl;
 
 import com.univeristymanagement.api.exceptions.ResourceNotFoundException;
+import com.univeristymanagement.api.exceptions.UserAlreadyRegisteredException;
 import com.univeristymanagement.api.model.Academic;
 import com.univeristymanagement.api.model.AcademicDepartment;
 import com.univeristymanagement.api.model.Dto.AcademicDto;
@@ -10,6 +11,7 @@ import com.univeristymanagement.api.model.Dto.StudyProgramDto;
 import com.univeristymanagement.api.model.StudyProgram;
 import com.univeristymanagement.api.repository.AcademicDepartmentRepository;
 import com.univeristymanagement.api.repository.AcademicRepository;
+import com.univeristymanagement.api.repository.StudentRepository;
 import com.univeristymanagement.api.repository.StudyProgramRepository;
 import com.univeristymanagement.api.service.AcademicService;
 import com.univeristymanagement.api.service.mappers.AcademicMapper;
@@ -28,17 +30,19 @@ public class AcademicServiceImpl implements AcademicService {
 
     private AcademicRepository academicRepository;
     private AcademicDepartmentRepository academicDepartmentRepository;
-
+    private StudentRepository studentRepository;
     private StudyProgramRepository studyProgramRepository;
 
     @Autowired
     public AcademicServiceImpl(AcademicRepository academicRepository
             , AcademicDepartmentRepository academicDepartmentRepository
-            , StudyProgramRepository studyProgramRepository)
+            , StudyProgramRepository studyProgramRepository
+            , StudentRepository studentRepository )
     {
         this.studyProgramRepository=studyProgramRepository;
         this.academicRepository=academicRepository;
         this.academicDepartmentRepository=academicDepartmentRepository;
+        this.studentRepository=studentRepository;
     }
     /**
      * Checks if an academic exists by id
@@ -49,6 +53,10 @@ public class AcademicServiceImpl implements AcademicService {
     public AcademicDto registerAcademic(AcademicRegistrationDTO academicDto) {
 
         checkIfDepartmentExistsById(academicDto.getDepartmentId());
+
+        if(checkIfUserAlreadyRegistered(academicDto.getEmail())){
+            throw new UserAlreadyRegisteredException(academicDto.getEmail());
+        }
 
         AcademicDepartment department= academicDepartmentRepository.findById(academicDto.getDepartmentId()).get();
 
@@ -179,6 +187,20 @@ public class AcademicServiceImpl implements AcademicService {
     private void checkIfStudyProgramStudyExistsById(long id){
         studyProgramRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("StudyProgram", "id", id));
+    }
+
+    /**
+     * Checks if a user is already registered
+     * @param email
+     * @return boolean
+     */
+    private boolean checkIfUserAlreadyRegistered(String email){
+        boolean isRegistered = false;
+
+        if(studentRepository.existsByEmail(email) || academicRepository.existsByEmail(email)){
+            isRegistered = true;
+        }
+        return isRegistered;
     }
 
 }

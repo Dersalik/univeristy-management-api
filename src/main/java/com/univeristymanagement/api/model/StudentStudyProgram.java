@@ -17,11 +17,11 @@ public class StudentStudyProgram {
     private LocalDate GraduationDate;
     private boolean isActive;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "study_program_id")
     private StudyProgram studyProgram;
 
