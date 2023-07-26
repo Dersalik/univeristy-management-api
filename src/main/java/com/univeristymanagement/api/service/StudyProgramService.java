@@ -70,7 +70,7 @@ public interface StudyProgramService {
      * @param studentId
      * @param studentStudyProgramCreateDto
      */
-    void addStudentToStudyProgram(long id,long studentId,StudyProgramCreateDto studentStudyProgramCreateDto);
+    void addStudentToStudyProgram(long id,long studentId,StudentStudyProgramCreateDto studentStudyProgramCreateDto);
 
     /**
      * Gets all Enrollments by study program id
@@ -78,19 +78,6 @@ public interface StudyProgramService {
      * @return Set<StudentStudyProgramDto>
      */
     Set<StudentStudyProgramDto> getEnrollmentsByStudyProgramId(Long id);
-
-    /**
-     * Gets an enrollment by id
-     * @param id
-     * @return StudentStudyProgramDto
-     */
-    StudentStudyProgramDto getEnrollmentById(Long id);
-    /**
-     * updates an enrollment by id
-     * @param id
-     * @return StudentStudyProgramDto
-     */
-    StudentStudyProgramDto updateEnrollment(Long id,StudentStudyProgramUpdateDto studentStudyProgramUpdateDto);
 
     /**
      * Deletes an enrollment by id

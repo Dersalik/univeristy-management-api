@@ -3,6 +3,7 @@ package com.univeristymanagement.api.controller;
 
 import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
 import com.univeristymanagement.api.model.Dto.*;
+import com.univeristymanagement.api.model.StudentStudyProgram;
 import com.univeristymanagement.api.service.StudyProgramService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -167,5 +168,19 @@ private final Logger logger ;
 
         logger.info("Add student to study program" );
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+
+    @GetMapping({"/{id}/students"})
+    @Operation(summary = "Get all students by study program id")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200",content = @Content(array = @ArraySchema(schema = @Schema(implementation = StudentDto.class)),mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "Study program not found"
+                    ,content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") })
+    })
+    public ResponseEntity<Set<StudentStudyProgramDto>> getStudentsByStudyProgramId(@PathVariable Long id){
+        Set<StudentStudyProgramDto> students = studyProgramService.getEnrollmentsByStudyProgramId(id);
+        logger.info("Get all students by study program id:" + id);
+        return new ResponseEntity<>(students, HttpStatus.OK);
     }
 }
