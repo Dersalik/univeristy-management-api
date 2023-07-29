@@ -31,22 +31,6 @@ public class AcademicDegreeServiceImpl implements AcademicDegreeService {
         this.studyProgramDegreeRepository = studyProgramDegreeRepository;
     }
 
-
-//    @Override
-//    public AcademicDegreeDto addAcademicDegree(AcademicDegreeCreateDto academicDegreeDto) {
-//
-//        if(!AcademicDegree.validatedIfDegreeNameAndAbbreviationAreEqual(academicDegreeDto.getDegreeName(),academicDegreeDto.getDegreeAbbreviation())){
-//             throw new ApiException("Degree name and Abbreviation are not equal");
-//        }
-//
-//
-//
-//        AcademicDegree academicDegree = AcademicDegreeMapper.academicDegreeCreateDtoToAcademicDegree(academicDegreeDto);
-//       AcademicDegree savedAcademicDegree = academicDegreeRepository.save(academicDegree);
-//
-//        return AcademicDegreeMapper.academicDegreeToAcademicDegreeDto(savedAcademicDegree);
-//    }
-
     /**
      *  Gets an academic degree by id
      * @param id
@@ -75,20 +59,13 @@ public class AcademicDegreeServiceImpl implements AcademicDegreeService {
                 .toList();
     }
 
-//    @Override
-//    public AcademicDegreeDto deleteAcademicDegreeById(Long id) {
-//        academicDegreeExists(id);
-//        AcademicDegree academicDegree = academicDegreeRepository.findById(id).get();
-//        academicDegreeRepository.deleteById(id);
-//
-//        return AcademicDegreeMapper.academicDegreeToAcademicDegreeDto(academicDegree);
-//    }
 
     /**
      * Checks if an academic degree exists by id
      * @param id
      */
-    private void academicDegreeExists(Long id){
+    @Override
+    public void academicDegreeExists(Long id){
         if(!academicDegreeRepository.existsById(id)){
             throw new ResourceNotFoundException("Academic Degree","id", id);
         }

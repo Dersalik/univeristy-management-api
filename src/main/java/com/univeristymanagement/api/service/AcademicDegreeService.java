@@ -27,4 +27,5 @@ public interface AcademicDegreeService {
     List<AcademicDegreeDto> getAllAcademicDegrees();
 
 //    AcademicDegreeDto deleteAcademicDegreeById(Long id);
+void academicDegreeExists(Long id);
 }
