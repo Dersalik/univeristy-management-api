@@ -166,7 +166,8 @@ public class AcademicServiceImpl implements AcademicService {
      * Checks if a department exists by id
      * @param id
      */
-    private void checkIfDepartmentExistsById(Long id) {
+    @Override
+    public void checkIfDepartmentExistsById(Long id) {
         academicDepartmentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("AcademicDepartment", "id", id));
     }
@@ -174,7 +175,8 @@ public class AcademicServiceImpl implements AcademicService {
      * Checks if an academic exists by id
      * @param id
      */
-    private void checkIfAcademicExistsById(Long id){
+    @Override
+    public void checkIfAcademicExistsById(Long id){
         academicRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Academic", "id", id));
     }
@@ -184,7 +186,8 @@ public class AcademicServiceImpl implements AcademicService {
      * @param id
      * @return void
      */
-    private void checkIfStudyProgramStudyExistsById(long id){
+    @Override
+    public void checkIfStudyProgramStudyExistsById(long id){
         studyProgramRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("StudyProgram", "id", id));
     }
@@ -194,7 +197,8 @@ public class AcademicServiceImpl implements AcademicService {
      * @param email
      * @return boolean
      */
-    private boolean checkIfUserAlreadyRegistered(String email){
+    @Override
+    public boolean checkIfUserAlreadyRegistered(String email){
         boolean isRegistered = false;
 
         if(studentRepository.existsByEmail(email) || academicRepository.existsByEmail(email)){

@@ -223,7 +223,8 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
      *  Checks if an academic department exists by id
      * @param id
      */
-    private void checkIfDepartmentExistsById(Long id) {
+    @Override
+    public void checkIfDepartmentExistsById(Long id) {
         academicDepartmentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("AcademicDepartment", "id", id));
     }
@@ -231,7 +232,8 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
      *  Checks if a faculty exists by id
      * @param id
      */
-    private void checkIfFacultyExistsById(Long id) {
+    @Override
+    public void checkIfFacultyExistsById(Long id) {
         facultyRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Faculty", "id", id));
     }
@@ -240,7 +242,8 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
      *  Checks if an academic exists by id
      * @param id
      */
-    private void checkIfAcademicExistsById(Long id) {
+    @Override
+    public void checkIfAcademicExistsById(Long id) {
         academicRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Academic", "id", id));
         }
@@ -251,7 +254,8 @@ public class AcademicDepartmentServiceImp implements AcademicDepartmentService {
      * @param id
      * @return void
      */
-    private void checkIfStudyProgramExistsById(Long id) {
+    @Override
+    public void checkIfStudyProgramExistsById(Long id) {
         studyProgramRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("StudyProgram", "id", id));
     }

@@ -65,4 +65,8 @@ public interface AcademicDepartmentService {
      * @return List<StudyProgramDto>
      */
     List<StudyProgramDto> getAllStudyProgramsByAcademicDepartmentId(Long id);
+    void checkIfStudyProgramExistsById(Long id);
+    void checkIfAcademicExistsById(Long id);
+    void checkIfFacultyExistsById(Long id);
+    void checkIfDepartmentExistsById(Long id);
 }

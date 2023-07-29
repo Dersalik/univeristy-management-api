@@ -245,19 +245,22 @@ public class StudyProgramServiceImpl implements StudyProgramService {
     }
 
 
-    private void academicDegreeExists(Long id){
+    @Override
+    public  void academicDegreeExists(Long id){
         if(!academicDegreeRepository.existsById(id)){
             throw new ResourceNotFoundException("Academic Degree","id", id);
         }
     }
 
-    private void studyProgramExists(Long id){
+    @Override
+    public  void studyProgramExists(Long id){
         if(!studyProgramRepository.existsById(id)){
             throw new ResourceNotFoundException("Study Program","id", id);
         }
     }
 
-    private void studentExists(Long id){
+    @Override
+    public  void studentExists(Long id){
         studentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Student", "id", id));
 
     }

@@ -75,8 +75,8 @@ public class StudentServiceImpl implements StudentService {
     public List<StudentDto> getAllStudents() {
         return studentRepository.findAll().stream().map(StudentMapper::studentToDto).toList();
     }
-
-    private boolean checkIfUserAlreadyRegistered(String email){
+    @Override
+    public boolean checkIfUserAlreadyRegistered(String email){
         boolean isRegistered = false;
 
         if(studentRepository.existsByEmail(email) || academicRepository.existsByEmail(email)){
@@ -89,7 +89,8 @@ public class StudentServiceImpl implements StudentService {
      * Checks if a department exists by id
      * @param id
      */
-    private void userExistsById(Long id){
+    @Override
+    public void userExistsById(Long id){
          studentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Student", "id", id));
 
     }

@@ -56,4 +56,8 @@ public interface AcademicService {
      * @return List<StudyProgramDto>
      */
     List<StudyProgramDto> getAllStudyProgramsByAcademicId(Long id);
+    boolean checkIfUserAlreadyRegistered(String email);
+    void checkIfStudyProgramStudyExistsById(long id);
+    void checkIfAcademicExistsById(Long id);
+    void checkIfDepartmentExistsById(Long id);
 }

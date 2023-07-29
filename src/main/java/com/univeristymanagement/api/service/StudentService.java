@@ -39,5 +39,7 @@ public interface StudentService {
      * @return List<StudentDto>
      */
     List<StudentDto> getAllStudents();
+    boolean checkIfUserAlreadyRegistered(String email);
+    void userExistsById(Long id);
 
 }

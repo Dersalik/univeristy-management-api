@@ -86,5 +86,8 @@ public interface StudyProgramService {
      * @return void
      */
     void deleteEnrollmentById(Long studyProgramId, Long studentId);
+    void studentExists(Long id);
+    void studyProgramExists(Long id);
+    void academicDegreeExists(Long id);
 
 }
