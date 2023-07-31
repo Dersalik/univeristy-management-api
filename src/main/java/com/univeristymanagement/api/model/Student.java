@@ -26,4 +26,6 @@ public class Student extends Person {
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StudentStudyProgram> StudentStudyPrograms;
+
+
 }

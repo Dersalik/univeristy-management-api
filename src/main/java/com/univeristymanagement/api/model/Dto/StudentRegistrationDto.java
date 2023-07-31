@@ -34,4 +34,6 @@ public class StudentRegistrationDto {
     @NotNull(message = "Birthday is required")
     @Past(message = "Birthday should be in the past")
     private LocalDate birthday;
+
+
 }

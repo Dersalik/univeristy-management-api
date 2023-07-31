@@ -22,13 +22,13 @@ import java.util.List;
 public class AcademicDegreeServiceImpl implements AcademicDegreeService {
 
     private AcademicDegreeRepository academicDegreeRepository;
-    private StudyProgramDegreeRepository studyProgramDegreeRepository;
+//    private StudyProgramDegreeRepository studyProgramDegreeRepository;
 
 
     @Autowired
     public AcademicDegreeServiceImpl(AcademicDegreeRepository academicDegreeRepository, StudyProgramDegreeRepository studyProgramDegreeRepository){
         this.academicDegreeRepository = academicDegreeRepository;
-        this.studyProgramDegreeRepository = studyProgramDegreeRepository;
+//        this.studyProgramDegreeRepository = studyProgramDegreeRepository;
     }
 
     /**

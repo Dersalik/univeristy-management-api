@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.univeristymanagement.api.model.Dto.AcademicDegreeDto;
 import org.mockito.InjectMocks;
@@ -96,4 +97,40 @@ public class AcademicDegreeServiceImplTest {
         assertEquals(DegreeName.BACHELOR_OF_SCIENCE, academicDegreeDtos.get(0).getDegreeName());
         assertEquals(DegreeName.MASTER_OF_ARTS, academicDegreeDtos.get(1).getDegreeName());
     }
+    @Test
+    public void testacademicDegreeExists_InvalidId_ThrowsResourceNotFoundException(){
+        // Arrange
+        Long academicDegreeId = 1L;
+        AcademicDegree academicDegree = new AcademicDegree();
+        academicDegree.setId(academicDegreeId);
+        academicDegree.setDegreeName(DegreeName.BACHELOR_OF_SCIENCE);
+
+        when(academicDegreeRepository.existsById(academicDegreeId)).thenReturn(false);
+
+
+
+
+        // Act & Assert
+        assertThrows(ResourceNotFoundException.class, () -> academicDegreeService.academicDegreeExists(academicDegreeId));
+
+    }
+
+
+    @Test
+    public void testacademicDegreeExists_ValidId() {
+        // Arrange
+        Long academicDegreeId = 1L;
+        AcademicDegree academicDegree = new AcademicDegree();
+        academicDegree.setId(academicDegreeId);
+        academicDegree.setDegreeName(DegreeName.BACHELOR_OF_SCIENCE);
+
+        when(academicDegreeRepository.existsById(academicDegreeId)).thenReturn(true);
+
+        // Act
+        academicDegreeService.academicDegreeExists(academicDegreeId);
+
+        // Assert
+        assertDoesNotThrow(() -> academicDegreeService.academicDegreeExists(academicDegreeId));
+    }
+
 }

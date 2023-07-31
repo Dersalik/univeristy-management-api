@@ -29,6 +29,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDto registerStudent(StudentRegistrationDto studentDto) {
+
         if(checkIfUserAlreadyRegistered(studentDto.getEmail())){
             throw new UserAlreadyRegisteredException(studentDto.getEmail());
         }
