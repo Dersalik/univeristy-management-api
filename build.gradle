@@ -53,6 +53,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-logging'
 
 
+	testImplementation 'com.h2database:h2'
+
+	// Spring Boot Test Starter
+
 
 }
 
