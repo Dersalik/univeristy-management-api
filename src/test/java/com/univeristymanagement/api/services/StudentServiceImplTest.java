@@ -19,6 +19,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -138,13 +140,67 @@ public class StudentServiceImplTest {
         assertEquals("should be equal",studentDto.getPreNominalTitles(),studentUpdateDto.getPreNominalTitles());
         assertEquals("should be equal",studentDto.getPostNominalTitles(),studentUpdateDto.getPostNominalTitles());
         assertEquals("should be equal",studentDto.getBirthday(),studentUpdateDto.getBirthday());
-
-
-
-
-
-
     }
+
+    @Test
+    public void deleteStudent_InvalidId_shouldThrowException() {
+        // Arrange
+        Long studentId = 1L;
+        when(studentRepository.existsById(studentId)).thenReturn(false);
+
+        // Act and Assert
+        assertThrows(ResourceNotFoundException.class, () -> {
+            studentServiceImpl.deleteStudent(studentId);
+        });
+    }
+
+    @Test
+    public void deleteStudent_ValidId_doesNotThrowException() {
+        // Arrange
+        Long studentId = 1L;
+        when(studentRepository.existsById(studentId)).thenReturn(true);
+        when(studentRepository.findById(studentId)).thenReturn(Optional.of(new Student()));
+        doNothing().when(studentRepository).deleteById(studentId);
+
+        // Act and Assert
+        assertDoesNotThrow(() -> {
+            studentServiceImpl.deleteStudent(studentId);
+        });
+        verify(studentRepository, times(1)).deleteById(any(Long.class));
+    }
+
+    @Test
+    public void getAllStudents_NoStudents_ReturnEmptyList() {
+        // Arrange
+        when(studentRepository.findAll()).thenReturn(new ArrayList<>());
+
+        // Act
+        List<StudentDto> students = studentServiceImpl.getAllStudents();
+
+        // Assert
+        assertEquals("should be equal",0,students.size());
+        verify(studentRepository, times(1)).findAll();
+    }
+
+    @Test
+    public void getAllStudents_StudentsExists_ReturnStudentList() {
+        // Arrange
+        List<Student> studentsList = new ArrayList<>();
+        studentsList.add(StudentMapper.studentRegistrationDtoToStudent(studentRegistrationDto));
+
+        when(studentRepository.findAll()).thenReturn(studentsList);
+
+        // Act
+        List<StudentDto> students = studentServiceImpl.getAllStudents();
+
+        // Assert
+        assertEquals("should be equal",1,students.size());
+        verify(studentRepository, times(1)).findAll();
+    }
+
+
+
+
 
 
 }
