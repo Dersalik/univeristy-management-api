@@ -14,6 +14,9 @@ import com.univeristymanagement.api.service.FacultyService;
 import com.univeristymanagement.api.service.mappers.FacultyMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -56,19 +59,25 @@ public class FacultyServiceImpl implements FacultyService {
         return FacultyMapper.facultyToDto(faculty);
 
     }
-    /**
-     * Gets all faculties
-     * @return List<FacultyDto>
-     */
     @Override
-    public List<FacultyDto> getAllFaculties() {
-        List<Faculty> faculties = facultyRepository.findAll();
-        List<FacultyDto> facultyDtos = faculties.stream()
-                .map(FacultyMapper::facultyToDto)
-                .collect(Collectors.toList());
+    public Page<FacultyDto> getAllFaculties(String name, String founder, Pageable pageable) {
+        Specification<Faculty> spec = Specification.where(null);
+
+        if (name != null) {
+            spec = spec.and((root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), "%" + name + "%"));
+        }
+
+        if (founder != null) {
+
+            spec = spec.and((root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("founder"), "%" + founder + "%"));
+        }
+
+        Page<Faculty> faculties = facultyRepository.findAll(spec, pageable);
+
+
+        Page<FacultyDto> facultyDtos = faculties.map(FacultyMapper::facultyToDto);
         return facultyDtos;
     }
-
     /**
      * Gets a faculty by id
      * @param id id of the faculty to be retrieved

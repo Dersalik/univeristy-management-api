@@ -6,6 +6,8 @@ import com.univeristymanagement.api.model.Dto.FacultyCreateDto;
 import com.univeristymanagement.api.model.Dto.FacultyDto;
 import com.univeristymanagement.api.model.Dto.FacultyUpdateDto;
 import com.univeristymanagement.api.model.Faculty;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -19,11 +21,13 @@ public interface FacultyService {
 
     /**
      * Gets all faculties
-     * @return List<FacultyDto>
+     * @param name
+     * @param department
+     * @param pageable
+     * @return Page<FacultyDto>
      */
-   List<FacultyDto> getAllFaculties();
-
-    /**
+    Page<FacultyDto> getAllFaculties(String name, String department, Pageable pageable);
+ /**
      * Gets a faculty by id
      * @param id
      * @return FacultyDto

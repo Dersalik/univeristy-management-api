@@ -15,6 +15,9 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,16 +59,22 @@ public class FacultyController {
 
     @Operation(summary = "Get all faculties")
     @ApiResponses({
-            @ApiResponse(responseCode = "200",  content = @Content(array = @ArraySchema(schema = @Schema(implementation = FacultyDto.class)),mediaType = "application/json")),
+            @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = FacultyDto.class)), mediaType = "application/json")),
     })
     @GetMapping
-    public ResponseEntity<List<FacultyDto>> getAllFaculties() {
+    public ResponseEntity<List<FacultyDto>> getAllFaculties(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String founder) {
 
-       List<FacultyDto> faculties= facultyService.getAllFaculties();
+        Pageable pageable = PageRequest.of(page, size);
+        Page<FacultyDto> faculties = facultyService.getAllFaculties(name, founder, pageable);
 
-       logger.info("All faculties fetched quantity: {}", faculties.size());
-         return ResponseEntity.ok(faculties);
+        logger.info("All faculties fetched quantity: {}", faculties.getTotalElements());
+        return ResponseEntity.ok(faculties.getContent());
     }
+
 
     @Operation(summary = "Get faculty by id")
     @ApiResponses({

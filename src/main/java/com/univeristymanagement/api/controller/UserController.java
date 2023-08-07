@@ -1,13 +1,9 @@
 package com.univeristymanagement.api.controller;
 
 import com.univeristymanagement.api.advice.ApplicationExceptionHandler;
-import com.univeristymanagement.api.model.Dto.AcademicDto;
-import com.univeristymanagement.api.model.Dto.AcademicRegistrationDTO;
-import com.univeristymanagement.api.model.Dto.StudentDto;
-import com.univeristymanagement.api.model.Dto.StudentRegistrationDto;
+import com.univeristymanagement.api.model.Dto.*;
 import com.univeristymanagement.api.service.AcademicService;
 import com.univeristymanagement.api.service.StudentService;
-import com.univeristymanagement.api.service.impl.AcademicServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -19,7 +15,15 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Objects;
 
 
 @RestController
@@ -28,6 +32,7 @@ import org.springframework.web.bind.annotation.*;
 @ApiResponses({
         @ApiResponse(responseCode = "500", content = { @Content( schema = @Schema(implementation = ApplicationExceptionHandler.ApiResponse.class),mediaType = "application/json") }),
 })
+@CrossOrigin
 public class UserController {
 
 
@@ -73,7 +78,6 @@ private final StudentService studentService;
         logger.info("Academic created with id: {}", registeredAcademic.getId());
         return new ResponseEntity<>(registeredAcademic, HttpStatus.CREATED);
     }
-
 
 
 

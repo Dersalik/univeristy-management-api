@@ -1,163 +1,130 @@
-2023-08-05T00:58:09.519+03:00  INFO 1140 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Starting FacultyControllerIntegrationTest using Java 18 with PID 1140 (started by max in C:\Users\max\Videos\api)
-2023-08-05T00:58:09.526+03:00 DEBUG 1140 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-08-05T00:58:09.527+03:00  INFO 1140 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2023-08-05T00:58:10.657+03:00  INFO 1140 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-05T00:58:10.744+03:00  INFO 1140 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 8 JPA repository interfaces.
-2023-08-05T00:58:11.412+03:00  INFO 1140 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-05T00:58:11.498+03:00  INFO 1140 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-08-05T00:58:11.500+03:00  INFO 1140 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-08-05T00:58:11.665+03:00  INFO 1140 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T00:58:11.813+03:00  INFO 1140 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-05T00:58:11.830+03:00  INFO 1140 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-05T00:58:12.071+03:00  INFO 1140 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64eeddd8
-2023-08-05T00:58:12.073+03:00  INFO 1140 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-05T00:58:12.449+03:00  INFO 1140 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T00:58:13.288+03:00  INFO 1140 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-05T00:58:13.511+03:00  INFO 1140 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T00:58:14.081+03:00  INFO 1140 --- [Test worker] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
-2023-08-05T00:58:14.085+03:00  INFO 1140 --- [Test worker] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
-2023-08-05T00:58:14.087+03:00  INFO 1140 --- [Test worker] c.u.api.controller.FacultyController     : FacultyController created
-2023-08-05T00:58:14.379+03:00  WARN 1140 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-05T00:58:15.699+03:00  INFO 1140 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-08-05T00:58:15.699+03:00  INFO 1140 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-08-05T00:58:15.708+03:00  INFO 1140 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-08-05T00:58:15.719+03:00  INFO 1140 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 20 ms
-2023-08-05T00:58:15.788+03:00  INFO 1140 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Started FacultyControllerIntegrationTest in 6.564 seconds (process running for 7.764)
-2023-08-05T00:58:16.246+03:00  INFO 1140 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T00:58:16.251+03:00  INFO 1140 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-08-05T00:58:16.261+03:00  INFO 1140 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-08-05T00:58:16.315+03:00  INFO 1140 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Starting FacultyControllerIntegrationTest using Java 18 with PID 1140 (started by max in C:\Users\max\Videos\api)
-2023-08-05T00:58:16.316+03:00 DEBUG 1140 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-08-05T00:58:16.316+03:00  INFO 1140 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2023-08-05T00:58:16.777+03:00  INFO 1140 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-05T00:58:16.814+03:00  INFO 1140 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 8 JPA repository interfaces.
-2023-08-05T00:58:16.938+03:00  INFO 1140 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-05T00:58:16.951+03:00  INFO 1140 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T00:58:16.952+03:00  INFO 1140 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-05T00:58:16.954+03:00  INFO 1140 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-08-05T00:58:16.997+03:00  INFO 1140 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@50ca509b
-2023-08-05T00:58:16.997+03:00  INFO 1140 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-08-05T00:58:17.039+03:00  INFO 1140 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T00:58:17.158+03:00  INFO 1140 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-05T00:58:17.265+03:00  INFO 1140 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T00:58:17.357+03:00  INFO 1140 --- [Test worker] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
-2023-08-05T00:58:17.358+03:00  INFO 1140 --- [Test worker] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
-2023-08-05T00:58:17.359+03:00  INFO 1140 --- [Test worker] c.u.api.controller.FacultyController     : FacultyController created
-2023-08-05T00:58:17.438+03:00  WARN 1140 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-05T00:58:17.960+03:00  INFO 1140 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-08-05T00:58:17.960+03:00  INFO 1140 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-08-05T00:58:17.963+03:00  INFO 1140 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-08-05T00:58:17.968+03:00  INFO 1140 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 8 ms
-2023-08-05T00:58:17.985+03:00  INFO 1140 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Started FacultyControllerIntegrationTest in 1.718 seconds (process running for 9.962)
-2023-08-05T00:58:18.727+03:00  INFO 1140 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T00:58:18.729+03:00  INFO 1140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2023-08-05T00:58:18.731+03:00  INFO 1140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2023-08-05T01:00:25.288+03:00  INFO 21760 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Starting FacultyControllerIntegrationTest using Java 18 with PID 21760 (started by max in C:\Users\max\Videos\api)
-2023-08-05T01:00:25.289+03:00 DEBUG 21760 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-08-05T01:00:25.290+03:00  INFO 21760 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2023-08-05T01:00:26.233+03:00  INFO 21760 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-05T01:00:26.300+03:00  INFO 21760 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 8 JPA repository interfaces.
-2023-08-05T01:00:26.915+03:00  INFO 21760 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-05T01:00:26.978+03:00  INFO 21760 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-08-05T01:00:26.981+03:00  INFO 21760 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-08-05T01:00:27.138+03:00  INFO 21760 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T01:00:27.290+03:00  INFO 21760 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-05T01:00:27.308+03:00  INFO 21760 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-05T01:00:27.486+03:00  INFO 21760 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@66048ac4
-2023-08-05T01:00:27.488+03:00  INFO 21760 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-05T01:00:27.810+03:00  INFO 21760 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T01:00:28.607+03:00  INFO 21760 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-05T01:00:28.740+03:00  INFO 21760 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T01:00:29.297+03:00  INFO 21760 --- [Test worker] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
-2023-08-05T01:00:29.304+03:00  INFO 21760 --- [Test worker] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
-2023-08-05T01:00:29.307+03:00  INFO 21760 --- [Test worker] c.u.api.controller.FacultyController     : FacultyController created
-2023-08-05T01:00:29.615+03:00  WARN 21760 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-05T01:00:30.891+03:00  INFO 21760 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-08-05T01:00:30.891+03:00  INFO 21760 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-08-05T01:00:30.904+03:00  INFO 21760 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-08-05T01:00:30.921+03:00  INFO 21760 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 30 ms
-2023-08-05T01:00:31.012+03:00  INFO 21760 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Started FacultyControllerIntegrationTest in 5.984 seconds (process running for 7.231)
-2023-08-05T01:00:31.595+03:00  INFO 21760 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T01:00:31.599+03:00  INFO 21760 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-08-05T01:00:31.604+03:00  INFO 21760 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-08-05T01:00:31.645+03:00  INFO 21760 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Starting FacultyControllerIntegrationTest using Java 18 with PID 21760 (started by max in C:\Users\max\Videos\api)
-2023-08-05T01:00:31.645+03:00 DEBUG 21760 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-08-05T01:00:31.646+03:00  INFO 21760 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2023-08-05T01:00:32.038+03:00  INFO 21760 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-05T01:00:32.061+03:00  INFO 21760 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 8 JPA repository interfaces.
-2023-08-05T01:00:32.153+03:00  INFO 21760 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-05T01:00:32.164+03:00  INFO 21760 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T01:00:32.165+03:00  INFO 21760 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-05T01:00:32.167+03:00  INFO 21760 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-08-05T01:00:32.215+03:00  INFO 21760 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@39a2adf9
-2023-08-05T01:00:32.216+03:00  INFO 21760 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-08-05T01:00:32.261+03:00  INFO 21760 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T01:00:32.401+03:00  INFO 21760 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-05T01:00:32.535+03:00  INFO 21760 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T01:00:32.652+03:00  INFO 21760 --- [Test worker] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
-2023-08-05T01:00:32.654+03:00  INFO 21760 --- [Test worker] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
-2023-08-05T01:00:32.655+03:00  INFO 21760 --- [Test worker] c.u.api.controller.FacultyController     : FacultyController created
-2023-08-05T01:00:32.724+03:00  WARN 21760 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-05T01:00:33.238+03:00  INFO 21760 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-08-05T01:00:33.238+03:00  INFO 21760 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-08-05T01:00:33.242+03:00  INFO 21760 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-08-05T01:00:33.247+03:00  INFO 21760 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 9 ms
-2023-08-05T01:00:33.267+03:00  INFO 21760 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Started FacultyControllerIntegrationTest in 1.658 seconds (process running for 9.487)
-2023-08-05T01:00:34.165+03:00  INFO 21760 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T01:00:34.167+03:00  INFO 21760 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2023-08-05T01:00:34.170+03:00  INFO 21760 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2023-08-05T01:04:06.407+03:00  INFO 23940 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Starting FacultyControllerIntegrationTest using Java 18 with PID 23940 (started by max in C:\Users\max\Videos\api)
-2023-08-05T01:04:06.408+03:00 DEBUG 23940 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-08-05T01:04:06.409+03:00  INFO 23940 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2023-08-05T01:04:07.377+03:00  INFO 23940 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-05T01:04:07.455+03:00  INFO 23940 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 8 JPA repository interfaces.
-2023-08-05T01:04:08.043+03:00  INFO 23940 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-05T01:04:08.109+03:00  INFO 23940 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-08-05T01:04:08.112+03:00  INFO 23940 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-08-05T01:04:08.264+03:00  INFO 23940 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T01:04:08.414+03:00  INFO 23940 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-05T01:04:08.431+03:00  INFO 23940 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-05T01:04:08.717+03:00  INFO 23940 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2d593b56
-2023-08-05T01:04:08.719+03:00  INFO 23940 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-05T01:04:09.081+03:00  INFO 23940 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T01:04:09.986+03:00  INFO 23940 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-05T01:04:10.125+03:00  INFO 23940 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T01:04:10.636+03:00  INFO 23940 --- [Test worker] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
-2023-08-05T01:04:10.640+03:00  INFO 23940 --- [Test worker] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
-2023-08-05T01:04:10.642+03:00  INFO 23940 --- [Test worker] c.u.api.controller.FacultyController     : FacultyController created
-2023-08-05T01:04:10.931+03:00  WARN 23940 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-05T01:04:12.204+03:00  INFO 23940 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-08-05T01:04:12.205+03:00  INFO 23940 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-08-05T01:04:12.211+03:00  INFO 23940 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-08-05T01:04:12.222+03:00  INFO 23940 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 17 ms
-2023-08-05T01:04:12.280+03:00  INFO 23940 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Started FacultyControllerIntegrationTest in 6.13 seconds (process running for 7.36)
-2023-08-05T01:04:12.710+03:00  INFO 23940 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T01:04:12.715+03:00  INFO 23940 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-08-05T01:04:12.719+03:00  INFO 23940 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-08-05T01:04:12.757+03:00  INFO 23940 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Starting FacultyControllerIntegrationTest using Java 18 with PID 23940 (started by max in C:\Users\max\Videos\api)
-2023-08-05T01:04:12.758+03:00 DEBUG 23940 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Running with Spring Boot v3.1.1, Spring v6.0.10
-2023-08-05T01:04:12.759+03:00  INFO 23940 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
-2023-08-05T01:04:13.126+03:00  INFO 23940 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-05T01:04:13.151+03:00  INFO 23940 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 8 JPA repository interfaces.
-2023-08-05T01:04:13.237+03:00  INFO 23940 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-05T01:04:13.245+03:00  INFO 23940 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T01:04:13.246+03:00  INFO 23940 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-05T01:04:13.247+03:00  INFO 23940 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-08-05T01:04:13.283+03:00  INFO 23940 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@12eb281f
-2023-08-05T01:04:13.284+03:00  INFO 23940 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-08-05T01:04:13.317+03:00  INFO 23940 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-05T01:04:13.427+03:00  INFO 23940 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-05T01:04:13.533+03:00  INFO 23940 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T01:04:13.634+03:00  INFO 23940 --- [Test worker] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
-2023-08-05T01:04:13.636+03:00  INFO 23940 --- [Test worker] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
-2023-08-05T01:04:13.636+03:00  INFO 23940 --- [Test worker] c.u.api.controller.FacultyController     : FacultyController created
-2023-08-05T01:04:13.720+03:00  WARN 23940 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-05T01:04:14.252+03:00  INFO 23940 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-08-05T01:04:14.253+03:00  INFO 23940 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-08-05T01:04:14.257+03:00  INFO 23940 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-08-05T01:04:14.262+03:00  INFO 23940 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 9 ms
-2023-08-05T01:04:14.282+03:00  INFO 23940 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Started FacultyControllerIntegrationTest in 1.558 seconds (process running for 9.362)
-2023-08-05T01:04:14.996+03:00  INFO 23940 --- [Test worker] c.u.api.controller.FacultyController     : Faculty created with id: 3
-2023-08-05T01:04:15.068+03:00  INFO 23940 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-08-05T01:04:15.069+03:00  INFO 23940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2023-08-05T01:04:15.073+03:00  INFO 23940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-08-07T14:50:29.123+03:00  INFO 2928 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Starting FacultyControllerIntegrationTest using Java 18 with PID 2928 (started by max in C:\Users\max\Videos\api)
+2023-08-07T14:50:29.128+03:00 DEBUG 2928 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-08-07T14:50:29.130+03:00  INFO 2928 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T14:50:30.288+03:00  INFO 2928 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T14:50:30.374+03:00  INFO 2928 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 8 JPA repository interfaces.
+2023-08-07T14:50:31.057+03:00  INFO 2928 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T14:50:31.138+03:00  INFO 2928 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T14:50:31.142+03:00  INFO 2928 --- [Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T14:50:31.322+03:00  INFO 2928 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:50:31.484+03:00  INFO 2928 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T14:50:31.502+03:00  INFO 2928 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T14:50:31.729+03:00  INFO 2928 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@795faad
+2023-08-07T14:50:31.732+03:00  INFO 2928 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T14:50:32.113+03:00  INFO 2928 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:50:32.986+03:00  INFO 2928 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T14:50:33.192+03:00  INFO 2928 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:50:33.804+03:00  INFO 2928 --- [Test worker] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
+2023-08-07T14:50:33.810+03:00  INFO 2928 --- [Test worker] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
+2023-08-07T14:50:33.812+03:00  INFO 2928 --- [Test worker] c.u.api.controller.FacultyController     : FacultyController created
+2023-08-07T14:50:34.124+03:00  WARN 2928 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T14:50:35.358+03:00  INFO 2928 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-08-07T14:50:35.358+03:00  INFO 2928 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-08-07T14:50:35.366+03:00  INFO 2928 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-08-07T14:50:35.378+03:00  INFO 2928 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 20 ms
+2023-08-07T14:50:35.443+03:00  INFO 2928 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Started FacultyControllerIntegrationTest in 6.627 seconds (process running for 7.871)
+2023-08-07T14:50:35.909+03:00  INFO 2928 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:50:35.912+03:00  INFO 2928 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T14:50:35.917+03:00  INFO 2928 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T14:50:35.959+03:00  INFO 2928 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Starting FacultyControllerIntegrationTest using Java 18 with PID 2928 (started by max in C:\Users\max\Videos\api)
+2023-08-07T14:50:35.960+03:00 DEBUG 2928 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-08-07T14:50:35.961+03:00  INFO 2928 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T14:50:36.489+03:00  INFO 2928 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T14:50:36.522+03:00  INFO 2928 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 8 JPA repository interfaces.
+2023-08-07T14:50:36.660+03:00  INFO 2928 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T14:50:36.675+03:00  INFO 2928 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:50:36.676+03:00  INFO 2928 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T14:50:36.677+03:00  INFO 2928 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-08-07T14:50:36.734+03:00  INFO 2928 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@4da929ef
+2023-08-07T14:50:36.735+03:00  INFO 2928 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-08-07T14:50:36.793+03:00  INFO 2928 --- [Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:50:36.957+03:00  INFO 2928 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T14:50:37.080+03:00  INFO 2928 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:50:37.165+03:00  INFO 2928 --- [Test worker] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
+2023-08-07T14:50:37.166+03:00  INFO 2928 --- [Test worker] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
+2023-08-07T14:50:37.167+03:00  INFO 2928 --- [Test worker] c.u.api.controller.FacultyController     : FacultyController created
+2023-08-07T14:50:37.231+03:00  WARN 2928 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T14:50:37.771+03:00  INFO 2928 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-08-07T14:50:37.771+03:00  INFO 2928 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-08-07T14:50:37.774+03:00  INFO 2928 --- [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-08-07T14:50:37.778+03:00  INFO 2928 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 7 ms
+2023-08-07T14:50:37.793+03:00  INFO 2928 --- [Test worker] u.a.s.i.FacultyControllerIntegrationTest : Started FacultyControllerIntegrationTest in 1.871 seconds (process running for 10.221)
+2023-08-07T14:50:38.528+03:00  INFO 2928 --- [Test worker] c.u.api.controller.FacultyController     : Faculty created with id: 5
+2023-08-07T14:50:38.563+03:00  INFO 2928 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:50:38.564+03:00  INFO 2928 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-08-07T14:50:38.565+03:00  INFO 2928 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-08-07T14:51:00.262+03:00  INFO 23748 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 23748 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
+2023-08-07T14:51:00.263+03:00 DEBUG 23748 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-08-07T14:51:00.264+03:00  INFO 23748 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T14:51:01.155+03:00  INFO 23748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T14:51:01.218+03:00  INFO 23748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 8 JPA repository interfaces.
+2023-08-07T14:51:01.734+03:00  INFO 23748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-07T14:51:01.744+03:00  INFO 23748 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T14:51:01.744+03:00  INFO 23748 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T14:51:01.828+03:00  INFO 23748 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T14:51:01.828+03:00  INFO 23748 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1524 ms
+2023-08-07T14:51:02.029+03:00  INFO 23748 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T14:51:02.082+03:00  INFO 23748 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T14:51:02.084+03:00  INFO 23748 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T14:51:02.199+03:00  INFO 23748 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:51:02.320+03:00  INFO 23748 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T14:51:02.333+03:00  INFO 23748 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T14:51:02.466+03:00  INFO 23748 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e6522a6
+2023-08-07T14:51:02.467+03:00  INFO 23748 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T14:51:02.764+03:00  INFO 23748 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:51:03.447+03:00  INFO 23748 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T14:51:03.583+03:00  INFO 23748 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:51:03.958+03:00  INFO 23748 --- [main] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
+2023-08-07T14:51:03.961+03:00  INFO 23748 --- [main] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
+2023-08-07T14:51:03.963+03:00  INFO 23748 --- [main] c.u.api.controller.FacultyController     : FacultyController created
+2023-08-07T14:51:04.090+03:00  WARN 23748 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T14:51:04.856+03:00  INFO 23748 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-08-07T14:51:04.923+03:00  INFO 23748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-07T14:51:04.935+03:00  INFO 23748 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 5.032 seconds (process running for 5.538)
+2023-08-07T14:51:05.243+03:00  INFO 23748 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T14:51:05.243+03:00  INFO 23748 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T14:51:05.244+03:00  INFO 23748 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-08-07T14:51:06.620+03:00  INFO 23748 --- [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 571 ms
+2023-08-07T14:51:21.275+03:00  INFO 23748 --- [http-nio-8080-exec-10] c.u.api.controller.FacultyController     : All faculties fetched quantity: 5
+2023-08-07T14:51:47.177+03:00  INFO 23748 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:51:47.179+03:00  INFO 23748 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T14:51:47.181+03:00  INFO 23748 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-07T14:53:41.346+03:00  INFO 23928 --- [main] c.u.a.UniversityManagementApiApplication : Starting UniversityManagementApiApplication using Java 18 with PID 23928 (C:\Users\max\Videos\api\build\classes\java\main started by max in C:\Users\max\Videos\api)
+2023-08-07T14:53:41.348+03:00 DEBUG 23928 --- [main] c.u.a.UniversityManagementApiApplication : Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-08-07T14:53:41.349+03:00  INFO 23928 --- [main] c.u.a.UniversityManagementApiApplication : No active profile set, falling back to 1 default profile: "default"
+2023-08-07T14:53:42.216+03:00  INFO 23928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-07T14:53:42.289+03:00  INFO 23928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 8 JPA repository interfaces.
+2023-08-07T14:53:42.812+03:00  INFO 23928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-07T14:53:42.821+03:00  INFO 23928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-07T14:53:42.821+03:00  INFO 23928 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-07T14:53:42.908+03:00  INFO 23928 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-07T14:53:42.908+03:00  INFO 23928 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1520 ms
+2023-08-07T14:53:43.140+03:00  INFO 23928 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-07T14:53:43.197+03:00  INFO 23928 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-07T14:53:43.199+03:00  INFO 23928 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-07T14:53:43.315+03:00  INFO 23928 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:53:43.439+03:00  INFO 23928 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-07T14:53:43.454+03:00  INFO 23928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-07T14:53:43.597+03:00  INFO 23928 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@77ea960f
+2023-08-07T14:53:43.598+03:00  INFO 23928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-07T14:53:43.871+03:00  INFO 23928 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-07T14:53:44.614+03:00  INFO 23928 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-07T14:53:44.754+03:00  INFO 23928 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:53:45.157+03:00  INFO 23928 --- [main] c.u.a.c.AcademicDegreeController         : AcademicDegreeController created
+2023-08-07T14:53:45.162+03:00  INFO 23928 --- [main] c.u.a.c.AcademicDepartmentController     : AcademicDepartmentController created
+2023-08-07T14:53:45.166+03:00  INFO 23928 --- [main] c.u.api.controller.FacultyController     : FacultyController created
+2023-08-07T14:53:45.342+03:00  WARN 23928 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-07T14:53:46.198+03:00  INFO 23928 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-08-07T14:53:46.271+03:00  INFO 23928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-07T14:53:46.284+03:00  INFO 23928 --- [main] c.u.a.UniversityManagementApiApplication : Started UniversityManagementApiApplication in 5.387 seconds (process running for 5.878)
+2023-08-07T14:53:46.685+03:00  INFO 23928 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-07T14:53:46.686+03:00  INFO 23928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-07T14:53:46.688+03:00  INFO 23928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-08-07T14:53:47.889+03:00  INFO 23928 --- [http-nio-8080-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 542 ms
+2023-08-07T14:53:57.668+03:00  INFO 23928 --- [http-nio-8080-exec-4] c.u.api.controller.FacultyController     : All faculties fetched quantity: 5
+2023-08-07T14:54:07.719+03:00  INFO 23928 --- [http-nio-8080-exec-5] c.u.api.controller.FacultyController     : All faculties fetched quantity: 2
+2023-08-07T14:54:17.056+03:00  INFO 23928 --- [http-nio-8080-exec-6] c.u.api.controller.FacultyController     : All faculties fetched quantity: 5
+2023-08-07T14:54:24.709+03:00  INFO 23928 --- [http-nio-8080-exec-7] c.u.api.controller.FacultyController     : All faculties fetched quantity: 2
+2023-08-07T14:54:28.323+03:00  INFO 23928 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-07T14:54:28.325+03:00  INFO 23928 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-07T14:54:28.328+03:00  INFO 23928 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
